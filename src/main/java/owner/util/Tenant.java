@@ -158,19 +158,14 @@ public void updatePhoneNumber(String newPhoneNumber) {
         }
         case 2 -> {
           activeTenant = tenant1; // Set the active tenant to tenant1 or tenant2
-          if (activeTenant != null) {
+     
             activeTenant.showFurniture();
-          } else {
-            logger.info("Please log in to view furniture.");
-          }
+          
         }
         case 3 -> {
           activeTenant = tenant1; // Set the active tenant to tenant1 or tenant2
-          if (activeTenant != null) {
             activeTenant.viewProfile();
-          } else {
-            logger.info("Please log in to view your profile.");
-          }
+        
         }
         case 4 -> {
           logger.info("Logged out successfully");
