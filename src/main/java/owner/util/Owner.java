@@ -76,13 +76,11 @@ public class Owner {
         ownedResidences.add(newResidence);
     }
     
-     
-   public boolean  ckeck(int input) {
-        	OwnerDashboard own=new OwnerDashboard();
-        	Residences residences= own.fun();
-			if( Residences.getId()!=input )return true;
-			else
-			return false;
-        }
-        }
+    public boolean check(int input) {
+        OwnerDashboard own = new OwnerDashboard();
+        // Directly compare the ID in the return statement
+        return own.fun().getId() != input;
+    }
+
+          }
         
