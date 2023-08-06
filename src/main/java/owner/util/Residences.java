@@ -14,7 +14,7 @@ public class Residences {
 
 
     public Residences(int residenceId, String ownerInfo, String location, int floor, int housePerFloor, String availableServices) {
-        this.idresidences=residenceId;
+        idresidences=residenceId;
         this.ownerInfo = ownerInfo;
         this.location = location;
         this.floor = floor;
