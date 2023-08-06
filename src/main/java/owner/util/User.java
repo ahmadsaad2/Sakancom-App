@@ -3,8 +3,11 @@ import owner.util.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class User {
+	private static final Logger logger = Logger.getLogger(Admindashboard.class.getName());
+
 	public User() {		
 	} 
 public String username;
@@ -22,9 +25,7 @@ this.type=type;
 }
 private static ArrayList<User> user= new ArrayList<>();
 private Scanner first;
-//public static boolean testAdmin =false ;
-//public static boolean testOwner =false ;
-//public static boolean testTenant =false ;
+
 public static boolean testuser;
 boolean flaga=true;
 boolean flago=false;
@@ -45,7 +46,7 @@ public  boolean  login(String username1, String password1) {
 }
 
 private static boolean check(String username, String password) {
-	System.out.println(username);
+	logger.info(username);
 	for(User user1: user) {
 		if (user1.getUsername().equals(username) && user1.getPassword().equals(password)) {
 			if(user1.getType().equals(UserType.AdminStrator)) {
@@ -70,18 +71,18 @@ private static boolean check(String username, String password) {
 	             return true;
 	         }
 			else if(user1.getType().equals(UserType.Tenant)) {
-				  System.out.println("Welcome to Sakancom!");
-			      System.out.println("1 - Available Housing & Book Accommodation");
-			      System.out.println("2 - Show furniture");
-			      System.out.println("3 - View Tenant Profile");
-			      System.out.println("4 - Log Out");
+				  logger.info("Welcome to Sakancom!");
+			      logger.info("1 - Available Housing & Book Accommodation");
+			      logger.info("2 - Show furniture");
+			      logger.info("3 - View Tenant Profile");
+			      logger.info("4 - Log Out");
 		         Tenant.displayDashboard();
 	             return true;
 	         }
 		}		
    }
 
-	 System.out.println("Login failed, the password or username invalid");
+	 logger.info("Login failed, the password or username invalid");
 	return false;
 }
 public String getPassword() {

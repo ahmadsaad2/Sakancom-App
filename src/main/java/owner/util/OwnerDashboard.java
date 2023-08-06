@@ -3,10 +3,12 @@ import java.util.ArrayList;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
-public class OwnerDashboard { 
-	
-	
+public class OwnerDashboard {
+    private static final Logger logger = Logger.getLogger(Admindashboard.class.getName());
+
+
     private Owner owner;
     private List<Residences> ownedResidences;
     Scanner scanner = new Scanner(System.in);
@@ -59,14 +61,14 @@ public class OwnerDashboard {
         }
 
         if (selectedResidence == null) {
-            System.out.println("Residence with ID " + residenceId + " not found.");
+            logger.info("Residence with ID " + residenceId + " not found.");
             return;
         }
 
         House newHouse = new House(residenceId, price, name, description, price, houseLocation, services);
         Tenant.availableHouses.add(newHouse);
         selectedResidence.addHouse(newHouse);
-        System.out.println("House added to the residence successfully!");
+        logger.info("House added to the residence successfully!");
     }
     
    public Residences fun() {
@@ -86,11 +88,11 @@ public class OwnerDashboard {
 //    	Owner owner = new Owner("Shahad", 1, "shahad", "123");
     	fun();
     	while (isLoggedIn) {
-        System.out.println("Welcome to Housing Owner's Control Panel");
-        System.out.println("1 - View My Residences");
-        System.out.println("2 - Add a New Residence");
-        System.out.println("3 - Add a House to Residence");
-        System.out.println("4 - Log Out");
+        logger.info("Welcome to Housing Owner's Control Panel");
+        logger.info("1 - View My Residences");
+        logger.info("2 - Add a New Residence");
+        logger.info("3 - Add a House to Residence");
+        logger.info("4 - Log Out");
 
         int choice = scanner.nextInt();
 
@@ -113,11 +115,11 @@ break;
             case 4:  
             
             
-        System.out.println("Logged out successfully");
+        logger.info("Logged out successfully");
         isLoggedIn = false;
                 break;
             default:
-                System.out.println("Invalid choice!");
+                logger.info("Invalid choice!");
                 displayDashboard();
                 break;
         }
@@ -131,7 +133,7 @@ break;
 
     	
     	
-    	System.out.println("Please provide the ID of the residence to which you want to add a house:");
+    	logger.info("Please provide the ID of the residence to which you want to add a house:");
         int residenceIdToAddHouse = scanner.nextInt();
         scanner.nextLine(); // Consume the newline character
 
@@ -145,30 +147,30 @@ break;
         }
 
         if (!residenceExists) {
-            System.out.println("Residence with ID " + residenceIdToAddHouse + " not found.");
+            logger.info("Residence with ID " + residenceIdToAddHouse + " not found.");
             displayDashboard();
             return;
         }
 
-        System.out.println("Please provide the details of the house to add:");
-        System.out.print("House ID: ");
+        logger.info("Please provide the details of the house to add:");
+        logger.info("House ID: ");
         int houseId = scanner.nextInt();
         scanner.nextLine(); // Consume the newline character
 
-        System.out.print("House Name: ");
+        logger.info("House Name: ");
         String name = scanner.nextLine();
 
-        System.out.print("Description: ");
+        logger.info("Description: ");
         String description = scanner.nextLine();
 
-        System.out.print("Price: ");
+        logger.info("Price: ");
         int price = scanner.nextInt();
         scanner.nextLine(); // Consume the newline character
 
-        System.out.print("Location: ");
+        logger.info("Location: ");
         String houseLocation = scanner.nextLine();
 
-        System.out.print("Services: ");
+        logger.info("Services: ");
         String services = scanner.nextLine();
 
         House newHouse = new House(houseId, residenceIdToAddHouse, name, description, price, houseLocation, services);
@@ -181,7 +183,7 @@ break;
             }
         }
 
-        System.out.println("House added to the residence successfully!");
+        logger.info("House added to the residence successfully!");
     	
     	
     }
@@ -189,33 +191,33 @@ break;
 	  public   boolean checkresidenceId;
     private void addresidence() {
     	
-    	  System.out.println("Please provide the details of the new residence:");
+    	  logger.info("Please provide the details of the new residence:");
     	 
           
           
-          System.out.print("Residence ID: ");
+          logger.info("Residence ID: ");
            residenceId = scanner.nextInt();
         checkresidenceId =checkresidenceId( residenceId);
           scanner.nextLine(); // Consume the newline character
           
-          System.out.print("Owner Information: ");
+          logger.info("Owner Information: ");
           String ownerInfo = scanner.nextLine();
           
-          System.out.print("Location: ");
+          logger.info("Location: ");
           String location = scanner.nextLine();
           
-          System.out.print("Number of Floors: ");
+          logger.info("Number of Floors: ");
           int floor = scanner.nextInt();
           
-          System.out.print("Number of Apartments per Floor: ");
+          logger.info("Number of Apartments per Floor: ");
           int housePerFloor = scanner.nextInt();
           scanner.nextLine(); // Consume the newline character
           
-          System.out.print("Available Services: ");
+          logger.info("Available Services: ");
           String availableServices = scanner.nextLine();
 
           addResidences(residenceId, ownerInfo, location, floor, housePerFloor, availableServices);
-          System.out.println("Residence added successfully!");
+          logger.info("Residence added successfully!");
           displayDashboard();
           
 
@@ -251,67 +253,67 @@ break;
         }
 
         if (selectedResidence == null) {
-            System.out.println("Residence with ID " + residenceId + " not found.");
+            logger.info("Residence with ID " + residenceId + " not found.");
             displayDashboard();
             return;
         }
 
 //        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please provide the details of the house to add:");
-        System.out.print("House ID: ");
+        logger.info("Please provide the details of the house to add:");
+        logger.info("House ID: ");
         int houseId = scanner.nextInt();
         scanner.nextLine(); // Consume the newline character
 
-        System.out.print("House Name: ");
+        logger.info("House Name: ");
         String name = scanner.nextLine();
 
-        System.out.print("Description: ");
+        logger.info("Description: ");
         String description = scanner.nextLine();
 
-        System.out.print("Price: ");
+        logger.info("Price: ");
         int price = scanner.nextInt();
         scanner.nextLine(); // Consume the newline character
 
-        System.out.print("Location: ");
+        logger.info("Location: ");
         String houseLocation = scanner.nextLine();
 
-        System.out.print("Services: ");
+        logger.info("Services: ");
         String services = scanner.nextLine();
 
         House newHouse = new House(houseId, residenceId, name, description, price, houseLocation, services);
         selectedResidence.addHouse(newHouse);
 
-        System.out.println("House added to the residence successfully!");
+        logger.info("House added to the residence successfully!");
         displayDashboard();
     }
     private void viewMyResidences() {
         List<Residences> ownedResidences = owner.getOwnedResidences();
 
         if (ownedResidences.isEmpty()) {
-            System.out.println("You have no owned residences.");
+            logger.info("You have no owned residences.");
         } else {
-            System.out.println("My Residences:");
+            logger.info("My Residences:");
             for (Residences residence : ownedResidences) {
-                System.out.println("Residence ID: " + residence.getId());
-                System.out.println("Owner Information: " + residence.getOwnerInfo());
-                System.out.println("Location: " + residence.getLocation());
-                System.out.println("Number of Floors: " + residence.getFloor());
-                System.out.println("Number of Apartments per Floor: " + residence.getHousePerFloor());
-                System.out.println("Available Services: " + residence.getAvailableServices());
-                System.out.println("Houses:");
+                logger.info("Residence ID: " + residence.getId());
+                logger.info("Owner Information: " + residence.getOwnerInfo());
+                logger.info("Location: " + residence.getLocation());
+                logger.info("Number of Floors: " + residence.getFloor());
+                logger.info("Number of Apartments per Floor: " + residence.getHousePerFloor());
+                logger.info("Available Services: " + residence.getAvailableServices());
+                logger.info("Houses:");
 
                 List<House> houses = residence.getHouses();
                 if (houses.isEmpty()) {
-                    System.out.println("   No houses added to this residence yet.");
+                    logger.info("   No houses added to this residence yet.");
                 } else {
                     for (House house : houses) {
-                        System.out.println("   House ID: " + house.getId());
-                        System.out.println("   House Name: " + house.getName());
-                        System.out.println("   Description: " + house.getDescription());
-                        System.out.println("   Price: " + house.getPrice());
-                        System.out.println("   Location: " + house.getLocation());
-                        System.out.println("   Services: " + house.getServices());
-                        System.out.println();
+                        logger.info("   House ID: " + house.getId());
+                        logger.info("   House Name: " + house.getName());
+                        logger.info("   Description: " + house.getDescription());
+                        logger.info("   Price: " + house.getPrice());
+                        logger.info("   Location: " + house.getLocation());
+                        logger.info("   Services: " + house.getServices());
+                       
                     }
                 }
             }

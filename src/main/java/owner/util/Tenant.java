@@ -6,8 +6,11 @@ import java.util.Scanner;
 
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
-public class Tenant { 
+public class Tenant {
+  private static final Logger logger = Logger.getLogger(Admindashboard.class.getName());
+
   private String name;
   private String phoneNumber;
   private String bankCard;
@@ -121,14 +124,14 @@ public void updatePhoneNumber(String newPhoneNumber) {
     this.password = password;
   }
   public void viewOwnedHouses() {
-      System.out.println("Owned Houses:");
+      logger.info("Owned Houses:");
       for (House house : ownedHouses) {
-          System.out.println("House Name: " + house.getName());
-          System.out.println("Description: " + house.getDescription());
-          System.out.println("Price: " + house.getPrice());
-          System.out.println("Location: " + house.getLocation());
-          System.out.println("Services: " + house.getServices());
-          System.out.println("-------------------------");
+          logger.info("House Name: " + house.getName());
+          logger.info("Description: " + house.getDescription());
+          logger.info("Price: " + house.getPrice());
+          logger.info("Location: " + house.getLocation());
+          logger.info("Services: " + house.getServices());
+          logger.info("-------------------------");
       }
   }
   public static void displayDashboard() {
@@ -153,7 +156,7 @@ public void updatePhoneNumber(String newPhoneNumber) {
           if (activeTenant != null) {
             activeTenant.bookAccommodation();
           } else {
-            System.out.println("Please log in to book accommodation.");
+            logger.info("Please log in to book accommodation.");
           }
           break;
         case 2:
@@ -161,7 +164,7 @@ public void updatePhoneNumber(String newPhoneNumber) {
           if (activeTenant != null) {
             activeTenant.showFurniture();
           } else {
-            System.out.println("Please log in to view furniture.");
+            logger.info("Please log in to view furniture.");
           }
           break;
         case 3:
@@ -169,19 +172,19 @@ public void updatePhoneNumber(String newPhoneNumber) {
           if (activeTenant != null) {
             activeTenant.viewProfile();
           } else {
-            System.out.println("Please log in to view your profile.");
+            logger.info("Please log in to view your profile.");
           }
           break;
         case 4:
 
-          System.out.println("Logged out successfully");
+          logger.info("Logged out successfully");
           isLoggedIn = false;
           break;
         case 5:
             activeTenant.viewOwnedHouses(); // View owned houses added by the tenant
             break;
         default:
-          System.out.println("Invalid choice!");
+          logger.info("Invalid choice!");
           break;
       }
 
@@ -194,11 +197,11 @@ public void updatePhoneNumber(String newPhoneNumber) {
   // Rest of the code...
 
   public void showFurniture() {
-    System.out.println("Welcome to your furniture view...");
-    System.out.println("1 - Showing advertised furniture");
-    System.out.println("2 - Advertise furniture");
-    System.out.println("3 - Go back to Dashboard menu");
-    System.out.println("4 - Log out from the system");
+    logger.info("Welcome to your furniture view...");
+    logger.info("1 - Showing advertised furniture");
+    logger.info("2 - Advertise furniture");
+    logger.info("3 - Go back to Dashboard menu");
+    logger.info("4 - Log out from the system");
     boolean isLoggedIn2 = true;
 
     while (isLoggedIn2) {
@@ -218,11 +221,11 @@ public void updatePhoneNumber(String newPhoneNumber) {
             break;
           case 4:
             // Log out
-            System.out.println("Logged out successfully");
+            logger.info("Logged out successfully");
             isLoggedIn2=false;
             break;
           default:
-            System.out.println("Invalid choice!");
+            logger.info("Invalid choice!");
             break;
         }
       }
@@ -240,13 +243,13 @@ public void updatePhoneNumber(String newPhoneNumber) {
 
   public void showFurniture1() {
 
-    System.out.println("Showing advertised furniture...");
-    System.out.println("1 - Go back to Dashboard menu");
+    logger.info("Showing advertised furniture...");
+    logger.info("1 - Go back to Dashboard menu");
     for (Furniture furniture : advertisedFurniture) {
-      System.out.println("Name: " + furniture.getName());
-      System.out.println("Description: " + furniture.getDescription());
-      System.out.println("Price: " + furniture.getPrice());
-      System.out.println("-------------------------");
+      logger.info("Name: " + furniture.getName());
+      logger.info("Description: " + furniture.getDescription());
+      logger.info("Price: " + furniture.getPrice());
+      logger.info("-------------------------");
     }
 
     try (Scanner scanner = new Scanner(System.in)) {
@@ -257,7 +260,7 @@ public void updatePhoneNumber(String newPhoneNumber) {
           showFurniture();
           break;
         default:
-          System.out.println("Invalid input");
+          logger.info("Invalid input");
           break;
       }
     }
@@ -271,23 +274,23 @@ public void updatePhoneNumber(String newPhoneNumber) {
     Scanner scanner = new Scanner(System.in);
     scanner = new Scanner(System.in);
 
-    System.out.println("Enter furniture details:");
-    System.out.print("Name: ");
+    logger.info("Enter furniture details:");
+    logger.info("Name: ");
     String name = scanner.nextLine();
 
-    System.out.print("Description: ");
+    logger.info("Description: ");
     String description = scanner.nextLine();
 
-    System.out.print("Price: ");
+    logger.info("Price: ");
     double price = scanner.nextDouble();
 
     Furniture furniture = new Furniture(name, description, price);
     addFurniture(furniture);
 
-    System.out.println("Furniture advertised successfully!");
-    System.out.println("1 -Go back to Dashboard menu");
-    System.out.println("2 - Add more advertised furniture");
-    System.out.println("3 - Remove advertised furniture");
+    logger.info("Furniture advertised successfully!");
+    logger.info("1 -Go back to Dashboard menu");
+    logger.info("2 - Add more advertised furniture");
+    logger.info("3 - Remove advertised furniture");
     int choice = scanner.nextInt();
 
     switch (choice) {
@@ -301,25 +304,25 @@ public void updatePhoneNumber(String newPhoneNumber) {
         removeFurniture();
         break;
       default:
-        System.out.println("Invalid input");
+        logger.info("Invalid input");
         break;
     }
   }
 
   public void removeFurniture() {
     Scanner scanner = new Scanner(System.in);
-    System.out.println("Enter the name of the furniture to remove:");
+    logger.info("Enter the name of the furniture to remove:");
     String name = scanner.nextLine();
 
     boolean removed = removeFurnitureByName(name);
     if (removed) {
-      System.out.println("Furniture removed successfully!");
+      logger.info("Furniture removed successfully!");
     } else {
-      System.out.println("Furniture not found!");
+      logger.info("Furniture not found!");
     }
 
-    System.out.println("1 - Go back to Dashboard menu");
-    System.out.println("2 - Add more advertised furniture");
+    logger.info("1 - Go back to Dashboard menu");
+    logger.info("2 - Add more advertised furniture");
 
     int choice = scanner.nextInt();
 
@@ -331,7 +334,7 @@ public void updatePhoneNumber(String newPhoneNumber) {
         advertiseFurniture();
         break;
       default:
-        System.out.println("Invalid input");
+        logger.info("Invalid input");
         break;
     }
   }
@@ -339,29 +342,29 @@ public void updatePhoneNumber(String newPhoneNumber) {
   public void bookAccommodation() {
     Scanner scanner = new Scanner(System.in);
 
-    System.out.println("Booking accommodation...");
+    logger.info("Booking accommodation...");
 
-    System.out.println("Available houses:");
+    logger.info("Available houses:");
     int count = 1;
 
     for (Residences ss : Owner.ownedResidences) {
       for(House house : ss.getHouses())
       if (!house.isRented()) {
-        System.out.println("House " + count);
-        System.out.println("ID: " + house.getId());
-        System.out.println("Name: " + house.getName());
-        System.out.println("Description: " + house.getDescription());
-        System.out.println("Price: " + house.getPrice());
-        System.out.println("Location: " + house.getLocation());
-        System.out.println("Services: " + house.getServices());
-        System.out.println("-------------------------");
+        logger.info("House " + count);
+        logger.info("ID: " + house.getId());
+        logger.info("Name: " + house.getName());
+        logger.info("Description: " + house.getDescription());
+        logger.info("Price: " + house.getPrice());
+        logger.info("Location: " + house.getLocation());
+        logger.info("Services: " + house.getServices());
+        logger.info("-------------------------");
         count++;
         availableHousesCopy.add(house);
       }
     }
     if (availableHousesCopy.isEmpty()) {
-      System.out.println("No available houses at the moment. Please check again later.");
-      System.out.println("1 - Go to showFurniture");
+      logger.info("No available houses at the moment. Please check again later.");
+      logger.info("1 - Go to showFurniture");
 
       int choice = scanner.nextInt();
 
@@ -370,12 +373,12 @@ public void updatePhoneNumber(String newPhoneNumber) {
           showFurniture();
           break;
         default:
-          System.out.println("Invalid input");
+          logger.info("Invalid input");
           break;
       }
     }
 
-    System.out.print("Enter the ID of the house you want to book: ");
+    logger.info("Enter the ID of the house you want to book: ");
     houseId = scanner.nextInt();
 
     House chosenHouse = homeRented(houseId);
@@ -388,54 +391,54 @@ public void updatePhoneNumber(String newPhoneNumber) {
     
     
     if (chosenHouse == null) {
-      System.out.println("Invalid house selection.");
+      logger.info("Invalid house selection.");
       bookAccommodation();
       return;
     }
 
     scanner.nextLine(); // Consume newline character
-    System.out.print("Enter your full name: ");
+    logger.info("Enter your full name: ");
     String tenantName = scanner.nextLine();
 
-    System.out.print("Enter the number of months to rent: ");
+    logger.info("Enter the number of months to rent: ");
     int numMonths = scanner.nextInt();
     double rentAmount =checkbill( chosenHouse.getPrice(), numMonths);
 
 
     scanner.nextLine(); // Consume newline character
-    System.out.print("Enter the payment method and details: ");
+    logger.info("Enter the payment method and details: ");
     String paymentMethod = scanner.nextLine();
 
     chosenHouse.setRented(true);
 
-    System.out.println("Booking successful! You have booked the house:");
-    System.out.println("House Name: " + chosenHouse.getName());
-    System.out.println("Tenant Name: " + tenantName);
-    System.out.println("Number of Months: " + numMonths);
-    System.out.println("Rent Amount: " + rentAmount);
-    System.out.println("Payment Method: " + paymentMethod);
-    System.out.println("---------------------------------------------");
-    System.out.println("---------------------------------------------");
+    logger.info("Booking successful! You have booked the house:");
+    logger.info("House Name: " + chosenHouse.getName());
+    logger.info("Tenant Name: " + tenantName);
+    logger.info("Number of Months: " + numMonths);
+    logger.info("Rent Amount: " + rentAmount);
+    logger.info("Payment Method: " + paymentMethod);
+    logger.info("---------------------------------------------");
+    logger.info("---------------------------------------------");
 
     addRentedHouse(chosenHouse.getName());
     availableHouses.remove(chosenHouse);
     HousesAfterRemove=availableHouses;
      Remove = homeRemove(houseId);
-    System.out.println("1 - Go back to bookAccommodation");
-    System.out.println("2 - Go back to Dashboard menu");
+    logger.info("1 - Go back to bookAccommodation");
+    logger.info("2 - Go back to Dashboard menu");
 
     int choice = scanner.nextInt();
 
     switch (choice) {
       case 1:
         bookAccommodation();
-        System.out.print("test");
+        logger.info("test");
         break;
       case 2:
         displayDashboard();
         break;
       default:
-        System.out.println("Invalid input");
+        logger.info("Invalid input");
         break;
     }
   }
@@ -450,15 +453,15 @@ public void updatePhoneNumber(String newPhoneNumber) {
   public boolean FlageUpdateEmail = false;
 
   public void viewProfile() {
-    System.out.println("Viewing tenant profile...");
-    System.out.println("Name: " + name);
-    System.out.println("Phone Number: " + phoneNumber);
-    System.out.println("Bank Card: " + bankCard);
-    System.out.println("Email: " + email);
-    System.out.println("Password: " + password);
+    logger.info("Viewing tenant profile...");
+    logger.info("Name: " + name);
+    logger.info("Phone Number: " + phoneNumber);
+    logger.info("Bank Card: " + bankCard);
+    logger.info("Email: " + email);
+    logger.info("Password: " + password);
 
-    System.out.println("1 - Go back to Dashboard menu");
-    System.out.println("2 - Edit Profile Information");
+    logger.info("1 - Go back to Dashboard menu");
+    logger.info("2 - Edit Profile Information");
     int choice = scanner.nextInt();
 
     switch (choice) {
@@ -469,53 +472,53 @@ public void updatePhoneNumber(String newPhoneNumber) {
         updateProfileInformation();
         break;
       default:
-        System.out.println("Invalid input");
+        logger.info("Invalid input");
         break;
     }
   }
 public static  int profileChoice;
 
   public int updateProfileInformation() {
-    System.out.println("---------------------");
-    System.out.println("1 - Update phone number");
-    System.out.println("2 - Update bank card");
-    System.out.println("3 - Update email");
-    System.out.println("4 - Update password");
+    logger.info("---------------------");
+    logger.info("1 - Update phone number");
+    logger.info("2 - Update bank card");
+    logger.info("3 - Update email");
+    logger.info("4 - Update password");
 
     profileChoice = scanner.nextInt();
     scanner.nextLine(); // Consume newline character
 
     switch (profileChoice) {
       case 1:
-        System.out.print("Enter new phone number: ");
+        logger.info("Enter new phone number: ");
         newPhoneNumber = scanner.nextLine();
         updatePhoneNumber(newPhoneNumber);
-        System.out.println("Phone number updated successfully!");
+        logger.info("Phone number updated successfully!");
         FlageUpdatePhone = true;
         break;
       case 2:
-        System.out.print("Enter new bank card: ");
+        logger.info("Enter new bank card: ");
         newBankCard = scanner.nextLine();
         updateBankCard(newBankCard);
-        System.out.println("Bank card updated successfully!");
+        logger.info("Bank card updated successfully!");
         FlageUpdateBank = true;
         break;
       case 3:
-        System.out.print("Enter new email: ");
+        logger.info("Enter new email: ");
         newEmail = scanner.nextLine();
         updateEmail(newEmail);
-        System.out.println("Email updated successfully!");
+        logger.info("Email updated successfully!");
         FlageUpdateEmail = true;
         break;
       case 4:
-        System.out.print("Enter new password: ");
+        logger.info("Enter new password: ");
         newPassword = scanner.nextLine();
         updatePassword(newPassword);
-        System.out.println("Password updated successfully!");
+        logger.info("Password updated successfully!");
         FlageUpdatePassword = true;
         break;
       default:
-        System.out.println("Invalid choice!");
+        logger.info("Invalid choice!");
         break;
     }
     viewProfile();
@@ -524,9 +527,9 @@ public static  int profileChoice;
 public boolean homeRemove(int id) {
 	
 for (House house : HousesAfterRemove) {
-	  System.out.print(house.getId()) ;
-	  System.out.print(id) ;
-	  System.out.println("") ;
+	  logger.info(String.valueOf(house.getId())) ;
+	  logger.info(String.valueOf(id));
+	  logger.info("") ;
     if (house.getId() == id)
      return false;
 }
