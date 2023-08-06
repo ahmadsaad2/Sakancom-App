@@ -153,11 +153,8 @@ public void updatePhoneNumber(String newPhoneNumber) {
       switch (choice) {
         case 1 -> {
           activeTenant = tenant1; // Set the active tenant to tenant1 or tenant2
-          if (activeTenant != null) {
-            activeTenant.bookAccommodation();
-          } else {
-            logger.info("Please log in to book accommodation.");
-          }
+    activeTenant.bookAccommodation();
+          
         }
         case 2 -> {
           activeTenant = tenant1; // Set the active tenant to tenant1 or tenant2
