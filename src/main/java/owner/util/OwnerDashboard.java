@@ -8,10 +8,15 @@ import java.util.logging.Logger;
 
 import static owner.util.Residences.*;
 
+ 
+
 public class OwnerDashboard {
-    private static final Logger logger = Logger.getLogger(Admindashboard.class.getName());
+    private static final Logger logger = Logger.getLogger(OwnerDashboard.class.getName());
+
+    // Rest of the code for the OwnerDashboard class
 
 
+    
     private Owner owner;
     private List<Residences> ownedResidences;
     Scanner scanner = new Scanner(System.in);
