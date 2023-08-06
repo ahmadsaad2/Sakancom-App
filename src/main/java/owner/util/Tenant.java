@@ -153,33 +153,31 @@ public void updatePhoneNumber(String newPhoneNumber) {
       switch (choice) {
         case 1 -> {
           activeTenant = tenant1; // Set the active tenant to tenant1 or tenant2
-          if (activeTenant != null) {
-            activeTenant.bookAccommodation();
-          } else {
-            logger.info("Please log in to book accommodation.");
-          }
+    activeTenant.bookAccommodation();
+          
         }
         case 2 -> {
           activeTenant = tenant1; // Set the active tenant to tenant1 or tenant2
-          if (activeTenant != null) {
+     
             activeTenant.showFurniture();
-          } else {
-            logger.info("Please log in to view furniture.");
-          }
+          
         }
         case 3 -> {
           activeTenant = tenant1; // Set the active tenant to tenant1 or tenant2
-          if (activeTenant != null) {
             activeTenant.viewProfile();
-          } else {
-            logger.info("Please log in to view your profile.");
-          }
+        
         }
         case 4 -> {
           logger.info("Logged out successfully");
           isLoggedIn = false;
         }
-        case 5 -> activeTenant.viewOwnedHouses(); // View owned houses added by the tenant
+        case 5 ->{
+        	if (activeTenant != null) {
+        	    activeTenant.viewOwnedHouses(); // View owned houses added by the tenant
+        	} else {
+        		logger.info("Error: activeTenant is null.");
+        	}
+        }
         default -> logger.info("Invalid choice!");
       }
 

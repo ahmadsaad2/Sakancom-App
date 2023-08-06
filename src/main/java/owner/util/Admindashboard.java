@@ -11,6 +11,7 @@ public class Admindashboard {
 
 
 	public Admindashboard() {
+		logger.info("Welcome to Admin Dashboard");
 	}
 
 	boolean isLoggedIn = true;
