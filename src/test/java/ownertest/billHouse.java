@@ -26,7 +26,7 @@ public class billHouse {
 
 @Then("the rent amount for the chosen house should be <{int}>")
 public void the_rent_amount_for_the_chosen_house_should_be(Integer expectedRentAmount) {
-	assertEquals(expectedRentAmount, Optional.of(x));
+	assertTrue(expectedRentAmount ==x);
 }
 
  }
