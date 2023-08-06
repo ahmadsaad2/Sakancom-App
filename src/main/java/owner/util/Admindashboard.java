@@ -1,10 +1,12 @@
 package owner.util;
 import java.util.Scanner;
 import java.util.*;
+import java.util.logging.Logger;
+
 public class Admindashboard {
 
 
-
+	private static final Logger logger = Logger.getLogger(Admindashboard.class.getName());
 
 
 	public Admindashboard() {
@@ -13,11 +15,12 @@ public class Admindashboard {
 	boolean isLoggedIn = true;
 
 	public void displayDashboard() {
+
 		while (isLoggedIn) {
-			System.out.println("Welcome to Admin Dashboard Panel");
-			System.out.println("1 - Show pending Houses");
-			System.out.println("2 - Accept and Reject houses");
-			System.out.println("3 - Log Out");
+			logger.info("Welcome to Admin Dashboard Panel");
+			logger.info("1 - Show pending Houses");
+			logger.info("2 - Accept and Reject houses");
+			logger.info("3 - Log Out");
 
 
 			Scanner scanner = new Scanner(System.in);
@@ -33,12 +36,12 @@ public class Admindashboard {
 
 
 				case 3:
-					System.out.println("Logged out successfully");
+					logger.info("Logged out successfully");
 					isLoggedIn = false;
 					break;
 
 				default:
-					System.out.println("Invalid choice");
+					logger.info("Invalid choice");
 					displayDashboard();
 					break;
 			}}}
@@ -49,20 +52,20 @@ public class Admindashboard {
 		Scanner scanner = new Scanner(System.in);
 
 		if (Residences.getmHouses() == null) {
-			System.out.println("NO pending houses");
+			logger.info("NO pending houses");
 		} else {
-		System.out.print("enter a id for house to accept or reject it" );
+			logger.info("enter a id for house to accept or reject it" );
 		int id1 = scanner.nextInt();
 		if(Residences.getId()==id1){
-		System.out.print("Choose action :1 for Accept \n 2 for Reject");
+			logger.info("Choose action :1 for Accept \n 2 for Reject");
 		if(takeAction(scanner.nextInt(),id1)==1) {
-			System.out.print("House accepted Successfully");
+			logger.info("House accepted Successfully");
 		}
 		else {
-			System.out.println("House Rejected Successfully");
+			logger.info("House Rejected Successfully");
 		}}
 		else{
-			System.out.println("no id ");
+			logger.info("no id ");
 		}
 	}}
 
@@ -86,13 +89,13 @@ public class Admindashboard {
 
 	public void viewRequests() {
 		List<House> mhouses = Residences.getmHouses();
-		System.out.print("test");
+		logger.info("test");
 		if (Residences.getmHouses() == null) {
-			System.out.println("NO pending houses");
+			logger.info("NO pending houses");
 		} else {
 			int i = 1;
 			for (House house : mhouses) {
-				System.out.println(i++ + " - Name: " + house.getName() + ", ID: " + house.getId() + ", Location: " + house.getLocation() + ", Description: " + house.getDescription());
+				logger.info(i++ + " - Name: " + house.getName() + ", ID: " + house.getId() + ", Location: " + house.getLocation() + ", Description: " + house.getDescription());
 			}
 		}
 	}
