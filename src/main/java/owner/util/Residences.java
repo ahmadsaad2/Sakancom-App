@@ -11,18 +11,17 @@ public class Residences {
     private String availableServices;
     private  static List<House> houses;
     private  static List<House> mhouses;
-//    (id, ownerInfo, location, floor, housePerFloor, availableServices);
 
 
     public Residences(int residenceId, String ownerInfo, String location, int floor, int housePerFloor, String availableServices) {
-        this.id = residenceId;
+        id = residenceId;
         this.ownerInfo = ownerInfo;
         this.location = location;
         this.floor = floor;
         this.housePerFloor = housePerFloor;
         this.availableServices = availableServices;
-        this.houses = new ArrayList<>();
-        this.mhouses=new ArrayList<>();
+        houses = new ArrayList<>();
+        mhouses=new ArrayList<>();
     }
 
     public Residences() {

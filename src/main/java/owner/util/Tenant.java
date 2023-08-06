@@ -32,7 +32,7 @@ public class Tenant {
     this.bankCard = bankCard;
     this.email = email;
     this.password = password;
-    this.availableHouses = new ArrayList<>();
+    availableHouses = new ArrayList<>();
     this.advertisedFurniture = new ArrayList<>();
     this.ownedHouses = new ArrayList<>();
   }
@@ -151,50 +151,41 @@ public void updatePhoneNumber(String newPhoneNumber) {
       int choice = scanner.nextInt();
 
       switch (choice) {
-        case 1:
+        case 1 -> {
           activeTenant = tenant1; // Set the active tenant to tenant1 or tenant2
           if (activeTenant != null) {
             activeTenant.bookAccommodation();
           } else {
             logger.info("Please log in to book accommodation.");
           }
-          break;
-        case 2:
+        }
+        case 2 -> {
           activeTenant = tenant1; // Set the active tenant to tenant1 or tenant2
           if (activeTenant != null) {
             activeTenant.showFurniture();
           } else {
             logger.info("Please log in to view furniture.");
           }
-          break;
-        case 3:
+        }
+        case 3 -> {
           activeTenant = tenant1; // Set the active tenant to tenant1 or tenant2
           if (activeTenant != null) {
             activeTenant.viewProfile();
           } else {
             logger.info("Please log in to view your profile.");
           }
-          break;
-        case 4:
-
+        }
+        case 4 -> {
           logger.info("Logged out successfully");
           isLoggedIn = false;
-          break;
-        case 5:
-            activeTenant.viewOwnedHouses(); // View owned houses added by the tenant
-            break;
-        default:
-          logger.info("Invalid choice!");
-          break;
+        }
+        case 5 -> activeTenant.viewOwnedHouses(); // View owned houses added by the tenant
+        default -> logger.info("Invalid choice!");
       }
 
-      // After logging out, go back to the username and password page
-//      if (!isLoggedIn) {
-//        username.main(null);
-//      }
     }
   }
-  // Rest of the code...
+
 
   public void showFurniture() {
     logger.info("Welcome to your furniture view...");
@@ -206,7 +197,8 @@ public void updatePhoneNumber(String newPhoneNumber) {
 
     while (isLoggedIn2) {
       try (Scanner scanner = new Scanner(System.in)) {
-        int choice = scanner.nextInt();
+        int choice;
+        choice = scanner.nextInt();
 
         switch (choice) {
           case 1:
@@ -275,8 +267,9 @@ public void updatePhoneNumber(String newPhoneNumber) {
     scanner = new Scanner(System.in);
 
     logger.info("Enter furniture details:");
+
     logger.info("Name: ");
-    String name = scanner.nextLine();
+    String furnitureName  = scanner.nextLine();
 
     logger.info("Description: ");
     String description = scanner.nextLine();
@@ -284,7 +277,7 @@ public void updatePhoneNumber(String newPhoneNumber) {
     logger.info("Price: ");
     double price = scanner.nextDouble();
 
-    Furniture furniture = new Furniture(name, description, price);
+    Furniture furniture = new Furniture(furnitureName , description, price);
     addFurniture(furniture);
 
     logger.info("Furniture advertised successfully!");
@@ -310,11 +303,12 @@ public void updatePhoneNumber(String newPhoneNumber) {
   }
 
   public void removeFurniture() {
-    Scanner scanner = new Scanner(System.in);
+    Scanner scanner;
+    scanner = new Scanner(System.in);
     logger.info("Enter the name of the furniture to remove:");
-    String name = scanner.nextLine();
+    String furnitureName  = scanner.nextLine();
 
-    boolean removed = removeFurnitureByName(name);
+    boolean removed = removeFurnitureByName(furnitureName);
     if (removed) {
       logger.info("Furniture removed successfully!");
     } else {

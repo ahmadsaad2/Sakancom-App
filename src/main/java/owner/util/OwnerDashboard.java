@@ -145,7 +145,7 @@ break;
         // Check if the residence with the given ID exists
         boolean residenceExists = false;
         for (Residences Residences : ownedResidences) {
-            if (Residences.getId() == residenceIdToAddHouse) {
+            if (getId() == residenceIdToAddHouse) {
                 residenceExists = true;
                 break;
             }
@@ -235,7 +235,7 @@ break;
 
         for (Residences residence : ownedResidences) {
 
-            if (residence.getId() == residenceId2) {
+            if (getId() == residenceId2) {
 
                 return true;
             }
@@ -253,7 +253,7 @@ break;
         } else {
             logger.info("My Residences:");
             for (Residences residence : ownedResidences) {
-                logger.info("Residence ID: " + residence.getId());
+                logger.info("Residence ID: " + getId());
                 logger.info("Owner Information: " + residence.getOwnerInfo());
                 logger.info("Location: " + residence.getLocation());
                 logger.info("Number of Floors: " + residence.getFloor());
@@ -261,7 +261,7 @@ break;
                 logger.info("Available Services: " + residence.getAvailableServices());
                 logger.info("Houses:");
 
-                List<House> houses = residence.getHouses();
+                List<House> houses = getHouses();
                 if (houses.isEmpty()) {
                     logger.info("   No houses added to this residence yet.");
                 } else {
