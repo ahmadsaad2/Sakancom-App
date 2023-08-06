@@ -1,37 +1,30 @@
 package owner.util;
 
-//import io.cucumber.cienvironment.internal.com.eclipsesource.json.JsonArray;
-
 import java.util.Scanner;
-
-import static owner.util.Tenant.scanner;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class username {
-	
 
-	 
-public static void main(String []args) {
-    while (true) {
-        User us = new User();
+    private static final Logger logger = Logger.getLogger(username.class.getName());
 
+    public static void main(String[] args) {
+        while (true) {
+            User us = new User();
 
-        Scanner first = new Scanner(System.in);
-        System.out.print("Enter username: ");
-        us.username = first.nextLine();
+            Scanner first = new Scanner(System.in);
+            logger.info("Enter username: ");
+            us.username = first.nextLine();
 
-        System.out.print("Enter password :");
-        us.password = first.nextLine();
-        us.login(us.username, us.password);
+            logger.info("Enter password: ");
+            us.password = first.nextLine();
+            us.login(us.username, us.password);
 
-
-        System.out.print("Do you want to continue? (yes/no): ");
-        String answer = scanner.nextLine().toLowerCase();
-        if (answer.equals("no")) {
-            break;
+            logger.info("Do you want to continue? (yes/no): ");
+            String answer = first.nextLine().toLowerCase();
+            if (answer.equals("no")) {
+                break;
+            }
         }
     }
 }
-}
-
-

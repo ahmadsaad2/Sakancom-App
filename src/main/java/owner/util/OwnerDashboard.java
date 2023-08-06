@@ -222,24 +222,6 @@ break;
     	
     }
     
-//    public boolean checkResidenceId(int residenceId2) {
-//        for (Residences residenceData : dataArrayList) {
-//            String[] residenceInfo = residenceData.split(",");
-//
-//            // Assuming the ID is at the first position in the data
-//            int residenceId = Integer.parseInt(residenceInfo[0]);
-//            System.out.print(residenceId);
-//            if (residenceId == residenceId2) {
-//            	System.out.print(residenceId);
-//                return true; // The residenceId2 exists in the dataArrayList
-//            }
-//       }
-////        System.out.print(residenceId2);
-////        System.out.println("ddddddddddddd");
-//    return false ;
-//        
-//        // The residenceId2 does not exist in the dataArrayList
-//    }
 
     public boolean checkresidenceId( int residenceId2) {
 
