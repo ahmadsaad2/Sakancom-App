@@ -1,18 +1,17 @@
 package owner.util;
 
 import java.util.Scanner;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class username {
-
-    private static final Logger logger = Logger.getLogger(username.class.getName());
+public class Username  {
+	 static Scanner first = new Scanner(System.in);
+    private static final Logger logger = Logger.getLogger(Username .class.getName());
 
     public static void main(String[] args) {
         while (true) {
             User us = new User();
 
-            Scanner first = new Scanner(System.in);
+ 
             logger.info("Enter username: ");
             us.username = first.nextLine();
 
