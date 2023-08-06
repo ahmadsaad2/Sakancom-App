@@ -52,30 +52,7 @@ public class OwnerDashboard {
         
         
   
-    public void addHouseToResidence(int residenceId, String name, String description, int price, String houseLocation, String services) {
-        Residences selectedResidence = null;
 
-        // Find the residence with the given ID
-        for (Residences residences : ownedResidences) {
-            if (getId() == residenceId) {
-                selectedResidence = residences;
-                break;
-            }
-        }
-
-
-
-            if (selectedResidence == null && logger.isLoggable(Level.INFO)) {
-                logger.info(String.format("Residence with ID %d not found.", residenceId));
-                return;
-            }
-
-
-        House newHouse = new House(residenceId, price, name, description, price, houseLocation, services);
-        Tenant.availableHouses.add(newHouse);
-        selectedResidence.addHouse(newHouse);
-        logger.info("House added to the residence successfully!");
-    }
     
    public Residences fun() {
 	  	Residences residence1 = new Residences(1, "Owner Info 1", "Location 1", 2, 4, "Services 1");

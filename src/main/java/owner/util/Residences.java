@@ -20,11 +20,11 @@ public class Residences {
         this.floor = floor;
         this.housePerFloor = housePerFloor;
         this.availableServices = availableServices;
-
+        this.houses = new ArrayList<>();
+        this.mhouses=new ArrayList<>();
     }
 
     public Residences() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public static int getId() {
@@ -59,25 +59,16 @@ public class Residences {
         return floor;
     }
 
-    public void setFloor(int floor) {
-        this.floor = floor;
-    }
 
     public int getHousePerFloor() {
         return housePerFloor;
     }
 
-    public void setHousePerFloor(int housePerFloor) {
-        this.housePerFloor = housePerFloor;
-    }
 
     public String getAvailableServices() {
         return availableServices;
     }
 
-    public void setAvailableServices(String availableServices) {
-        this.availableServices = availableServices;
-    }
 
     public static List<House> getHouses() {
         return houses;

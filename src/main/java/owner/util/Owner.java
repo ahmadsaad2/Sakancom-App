@@ -14,7 +14,7 @@ public class Owner {
         this.id = id;
         this.username = username;
         this.password = password;
-
+        ownedResidences=new ArrayList<>();
     }
 
     public Owner() {
