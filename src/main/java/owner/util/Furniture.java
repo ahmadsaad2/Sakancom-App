@@ -15,7 +15,8 @@ public class Furniture {
     }
 
     public Furniture() {
-		// TODO Auto-generated constructor stub
+		name=null;
+		description=null;
 	}
 
 	public String getName() {
