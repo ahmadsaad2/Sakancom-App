@@ -30,11 +30,11 @@ public class adminacceptandreject {
 
     @Then("the house is accepted")
     public void the_house_is_accepted() {
-        assertEquals(0, actionResult1);
+        assertEquals(1, actionResult1);
     }
 
     @Then("the house is rejected")
     public void the_house_is_rejected() {
-        assertEquals(0, actionResult2);
+        assertEquals(2, actionResult2);
     }
 }

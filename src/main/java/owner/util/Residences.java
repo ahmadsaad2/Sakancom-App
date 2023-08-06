@@ -88,7 +88,7 @@ public class Residences {
     public void addHouse(House house) {
         houses.add(house);
     }
-    public void addmHouse(House house) {
+    public static void addmHouse(House house) {
         mhouses.add(house);
 
     }
