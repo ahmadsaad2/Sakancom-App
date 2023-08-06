@@ -6,6 +6,8 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static owner.util.Residences.*;
+
 public class OwnerDashboard {
     private static final Logger logger = Logger.getLogger(Admindashboard.class.getName());
 
@@ -55,7 +57,7 @@ public class OwnerDashboard {
 
         // Find the residence with the given ID
         for (Residences residences : ownedResidences) {
-            if (Residences.getId() == residenceId) {
+            if (getId() == residenceId) {
                 selectedResidence = residences;
                 break;
             }
@@ -149,12 +151,12 @@ break;
             }
         }
 
-        if (!residenceExists) {
-            logger.info(String.format("Residence with ID %d not found.", residenceIdToAddHouse));
 
-            displayDashboard();
+        if (!residenceExists && logger.isLoggable(Level.INFO)) {
+            logger.info(String.format("Residence with ID %d not found.", residenceId));
             return;
         }
+
 
         logger.info("Please provide the details of the house to add:");
         logger.info("House ID: ");
@@ -180,9 +182,9 @@ break;
         House newHouse = new House(houseId, residenceIdToAddHouse, name, description, price, houseLocation, services);
 
         // Find the residence with the given ID and add the house
-        for (Residences Residences : ownedResidences) {
-            if (Residences.getId() == residenceIdToAddHouse) {
-                Residences.addmHouse(newHouse);
+        for (Residences residences : ownedResidences) {
+            if (getId() == residenceIdToAddHouse) {
+                addmHouse(newHouse);
                 break;
             }
         }
