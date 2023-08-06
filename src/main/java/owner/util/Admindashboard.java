@@ -95,7 +95,8 @@ public class Admindashboard {
 		} else {
 			int i = 1;
 			for (House house : mhouses) {
-				logger.info(i++ + " - Name: " + house.getName() + ", ID: " + house.getId() + ", Location: " + house.getLocation() + ", Description: " + house.getDescription());
+				logger.info(String.format("%d - Name: %s, ID: %d, Location: %s, Description: %s",
+						i++, house.getName(), house.getId(), house.getLocation(), house.getDescription()));
 			}
 		}
 	}

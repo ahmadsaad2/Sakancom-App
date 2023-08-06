@@ -20,25 +20,25 @@ public class OwnerDashboard {
 
     public OwnerDashboard(Owner owner) {
         this.owner = owner;
-        this.ownedResidences = owner.getOwnedResidences();
+        this.ownedResidences = Owner.getOwnedResidences();
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 	public void addResidences(int id, String ownerInfo, String location, int floor, int housePerFloor, String availableServices) {
         Residences newResidence = new Residences(id, ownerInfo, location, floor, housePerFloor, availableServices);
@@ -53,15 +53,15 @@ public class OwnerDashboard {
         Residences selectedResidence = null;
 
         // Find the residence with the given ID
-        for (Residences residence : ownedResidences) {
-            if (residence.getId() == residenceId) {
-                selectedResidence = residence;
+        for (Residences Residences : ownedResidences) {
+            if (Residences.getId() == residenceId) {
+                selectedResidence = Residences;
                 break;
             }
         }
 
         if (selectedResidence == null) {
-            logger.info("Residence with ID " + residenceId + " not found.");
+            logger.info(String.format("Residence with ID %d not found.", residenceId));
             return;
         }
 
@@ -85,7 +85,6 @@ public class OwnerDashboard {
 
     boolean isLoggedIn = true;
     public void displayDashboard() {
-//    	Owner owner = new Owner("Shahad", 1, "shahad", "123");
     	fun();
     	while (isLoggedIn) {
         logger.info("Welcome to Housing Owner's Control Panel");
@@ -129,25 +128,26 @@ break;
     
 
 	private void addHouseToResidence() {
-   	
 
-    	
-    	
+
+
+
     	logger.info("Please provide the ID of the residence to which you want to add a house:");
         int residenceIdToAddHouse = scanner.nextInt();
         scanner.nextLine(); // Consume the newline character
 
         // Check if the residence with the given ID exists
         boolean residenceExists = false;
-        for (Residences residence : ownedResidences) {
-            if (residence.getId() == residenceIdToAddHouse) {
+        for (Residences Residences : ownedResidences) {
+            if (Residences.getId() == residenceIdToAddHouse) {
                 residenceExists = true;
                 break;
             }
         }
 
         if (!residenceExists) {
-            logger.info("Residence with ID " + residenceIdToAddHouse + " not found.");
+            logger.info(String.format("Residence with ID %d not found.", residenceIdToAddHouse));
+
             displayDashboard();
             return;
         }
@@ -176,16 +176,16 @@ break;
         House newHouse = new House(houseId, residenceIdToAddHouse, name, description, price, houseLocation, services);
 
         // Find the residence with the given ID and add the house
-        for (Residences residence : ownedResidences) {
-            if (residence.getId() == residenceIdToAddHouse) {
-                residence.addmHouse(newHouse);
+        for (Residences Residences : ownedResidences) {
+            if (Residences.getId() == residenceIdToAddHouse) {
+                Residences.addmHouse(newHouse);
                 break;
             }
         }
 
         logger.info("House added to the residence successfully!");
-    	
-    	
+
+
     }
 	public int residenceId;
 	  public   boolean checkresidenceId;
@@ -228,66 +228,19 @@ break;
     public boolean checkresidenceId( int residenceId2) {
 
         for (Residences residence : ownedResidences) {
-//            String[] residenceInfo = residence.split(",");
 
-            // Assuming the ID is at the first position in the data
-         //   int residenceId = Integer.parseInt(residenceInfo[0]);
             if (residence.getId() == residenceId2) {
-            //if (residenceId == residenceId2) {
-                return true; // The residenceId2 exists in the dataArrayList
+
+                return true;
             }
         }
 
-        return false; // The residenceId2 does not exist in the dataArrayList
+        return false;
     }
 
-	private void addHouseToResidence(int residenceId) {
-        Residences selectedResidence = null;
 
-        // Find the residence with the given ID
-        for (Residences residence : ownedResidences) {
-            if (residence.getId() == residenceId) {
-                selectedResidence = residence;
-                break;
-            }
-        }
-
-        if (selectedResidence == null) {
-            logger.info("Residence with ID " + residenceId + " not found.");
-            displayDashboard();
-            return;
-        }
-
-//        Scanner scanner = new Scanner(System.in);
-        logger.info("Please provide the details of the house to add:");
-        logger.info("House ID: ");
-        int houseId = scanner.nextInt();
-        scanner.nextLine(); // Consume the newline character
-
-        logger.info("House Name: ");
-        String name = scanner.nextLine();
-
-        logger.info("Description: ");
-        String description = scanner.nextLine();
-
-        logger.info("Price: ");
-        int price = scanner.nextInt();
-        scanner.nextLine(); // Consume the newline character
-
-        logger.info("Location: ");
-        String houseLocation = scanner.nextLine();
-
-        logger.info("Services: ");
-        String services = scanner.nextLine();
-
-        House newHouse = new House(houseId, residenceId, name, description, price, houseLocation, services);
-        selectedResidence.addHouse(newHouse);
-
-        logger.info("House added to the residence successfully!");
-        displayDashboard();
-    }
     private void viewMyResidences() {
-        List<Residences> ownedResidences = owner.getOwnedResidences();
+        List<Residences> localOwnedResidences = Owner.getOwnedResidences();
 
         if (ownedResidences.isEmpty()) {
             logger.info("You have no owned residences.");

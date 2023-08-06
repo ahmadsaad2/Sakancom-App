@@ -14,7 +14,7 @@ public class Owner {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.ownedResidences = new ArrayList<>();
+
     }
 
     public Owner() {
@@ -64,8 +64,8 @@ public class Owner {
      
    public boolean  ckeck(int input) {
         	OwnerDashboard own=new OwnerDashboard();
-        	Residences newResidence= own.fun();
-			if( newResidence.getId()!=input )return true;
+        	Residences Residences= own.fun();
+			if( Residences.getId()!=input )return true;
 			else
 			return false;
         }
