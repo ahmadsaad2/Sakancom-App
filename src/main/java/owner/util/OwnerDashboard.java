@@ -104,7 +104,7 @@ break;
              
 
             case 3:
-            	addhousetoresidence();
+                addHouseToResidence();
 
                 break;
 
@@ -126,10 +126,9 @@ break;
     }
     
 
-	private void addhousetoresidence() {
+	private void addHouseToResidence() {
    	
-//    	Scanner scanner=new Scanner(System.in);
-   	
+
     	
     	
     	System.out.println("Please provide the ID of the residence to which you want to add a house:");
