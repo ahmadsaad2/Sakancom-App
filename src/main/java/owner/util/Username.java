@@ -9,8 +9,6 @@ public class Username  {
     public static void main(String[] args) {
         while (true) {
             User us = new User();
-
- 
             logger.info("Enter username: ");
             us.username = first.nextLine();
 
