@@ -2,22 +2,37 @@ package owner.util;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Owner {
     private String name; 
     private int id;
     private String username;
     private String password;
-    public static List<Residences> ownedResidences;
+    private static final List<Residences> ownedResidences = new ArrayList<>();
+
 
     public Owner(String name, int id, String username, String password) {
         this.name = name;
         this.id = id;
         this.username = username;
         this.password = password;
-        ownedResidences=new ArrayList<>();
+     
+      
+        // Constructor and other methods for the Owner class
+
+	    // Getter method for ownedResidences
+	   
+	    }
+    public static List<Residences> getOwnedResidences1() {
+        return ownedResidences;
+        
     }
 
     public Owner() {
+    	
+
+    	
+
 		
 	}
 
