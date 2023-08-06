@@ -195,7 +195,7 @@ break;
           
           System.out.print("Residence ID: ");
            residenceId = scanner.nextInt();
-        checkresidenceId =checkResidenceId( residenceId);
+        checkresidenceId =checkresidenceId( residenceId);
           scanner.nextLine(); // Consume the newline character
           
           System.out.print("Owner Information: ");
@@ -241,7 +241,7 @@ break;
 //        // The residenceId2 does not exist in the dataArrayList
 //    }
 
-    public boolean checkResidenceId( int residenceId2) {
+    public boolean checkresidenceId( int residenceId2) {
 
         for (Residences residence : ownedResidences) {
 //            String[] residenceInfo = residence.split(",");
