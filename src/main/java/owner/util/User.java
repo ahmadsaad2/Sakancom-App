@@ -1,5 +1,5 @@
 package owner.util;
-import owner.util.*;
+
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -17,14 +17,13 @@ private UserType type;
   public static boolean a=false;
   public static boolean o=false;
   public static boolean flage=true;
-   
+  Scanner first;
 public User(String username, String password, UserType type) {
 this.username=username;
 this.password=password;
 this.type=type;
 }
 private static ArrayList<User> usersystem= new ArrayList<>();
-private Scanner first;
 
 public static boolean testuser;
 boolean flaga=true;
