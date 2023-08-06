@@ -78,9 +78,13 @@ public class Owner {
     
     public boolean check(int input) {
         OwnerDashboard own = new OwnerDashboard();
-        // Directly compare the ID in the return statement
-        return own.fun().getId() != input;
+        // Remove the unused "residences" local variable and call the method directly
+        if (own.fun().getId() != input)
+            return true;
+        else
+            return false;
     }
+
 
           }
         
