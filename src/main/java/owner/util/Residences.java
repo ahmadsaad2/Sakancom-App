@@ -14,14 +14,13 @@ public class Residences {
 
 
     public Residences(int residenceId, String ownerInfo, String location, int floor, int housePerFloor, String availableServices) {
-        id = residenceId;
+
         this.ownerInfo = ownerInfo;
         this.location = location;
         this.floor = floor;
         this.housePerFloor = housePerFloor;
         this.availableServices = availableServices;
-        houses = new ArrayList<>();
-        mhouses=new ArrayList<>();
+
     }
 
     public Residences() {

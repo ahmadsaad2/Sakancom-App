@@ -32,7 +32,7 @@ public class Tenant {
     this.bankCard = bankCard;
     this.email = email;
     this.password = password;
-    availableHouses = new ArrayList<>();
+
     this.advertisedFurniture = new ArrayList<>();
     this.ownedHouses = new ArrayList<>();
   }
@@ -196,9 +196,9 @@ public void updatePhoneNumber(String newPhoneNumber) {
     boolean isLoggedIn2 = true;
 
     while (isLoggedIn2) {
-      try (Scanner scanner = new Scanner(System.in)) {
+      try (Scanner inputscanner = new Scanner(System.in)) {
         int choice;
-        choice = scanner.nextInt();
+        choice = inputscanner.nextInt();
 
         switch (choice) {
           case 1:
@@ -244,8 +244,8 @@ public void updatePhoneNumber(String newPhoneNumber) {
       logger.info("-------------------------");
     }
 
-    try (Scanner scanner = new Scanner(System.in)) {
-      int choice = scanner.nextInt();
+    try (Scanner inputscanner = new Scanner(System.in)) {
+      int choice = inputscanner.nextInt();
 
       switch (choice) {
         case 1:
@@ -263,19 +263,19 @@ public void updatePhoneNumber(String newPhoneNumber) {
 	 
  }
   public void advertiseFurniture() {
-    Scanner scanner = new Scanner(System.in);
-    scanner = new Scanner(System.in);
+    Scanner inputscanner = new Scanner(System.in);
+    inputscanner = new Scanner(System.in);
 
     logger.info("Enter furniture details:");
 
     logger.info("Name: ");
-    String furnitureName  = scanner.nextLine();
+    String furnitureName  = inputscanner.nextLine();
 
     logger.info("Description: ");
-    String description = scanner.nextLine();
+    String description = inputscanner.nextLine();
 
     logger.info("Price: ");
-    double price = scanner.nextDouble();
+    double price = inputscanner.nextDouble();
 
     Furniture furniture = new Furniture(furnitureName , description, price);
     addFurniture(furniture);
@@ -284,7 +284,7 @@ public void updatePhoneNumber(String newPhoneNumber) {
     logger.info("1 -Go back to Dashboard menu");
     logger.info("2 - Add more advertised furniture");
     logger.info("3 - Remove advertised furniture");
-    int choice = scanner.nextInt();
+    int choice = inputscanner.nextInt();
 
     switch (choice) {
       case 1:
@@ -334,7 +334,7 @@ public void updatePhoneNumber(String newPhoneNumber) {
   }
 
   public void bookAccommodation() {
-    Scanner scanner = new Scanner(System.in);
+    Scanner inputscanner = new Scanner(System.in);
 
     logger.info("Booking accommodation...");
 
@@ -342,9 +342,9 @@ public void updatePhoneNumber(String newPhoneNumber) {
     int count = 1;
 
     for (Residences ss : Owner.ownedResidences) {
-      for(House house : ss.getHouses())
+      for(House house : Residences.getHouses())
       if (!house.isRented()) {
-        logger.info("House " + count);
+        logger.info(new StringBuilder().append("House ").append(count).toString());
         logger.info("ID: " + house.getId());
         logger.info("Name: " + house.getName());
         logger.info("Description: " + house.getDescription());
@@ -360,7 +360,7 @@ public void updatePhoneNumber(String newPhoneNumber) {
       logger.info("No available houses at the moment. Please check again later.");
       logger.info("1 - Go to showFurniture");
 
-      int choice = scanner.nextInt();
+      int choice = inputscanner.nextInt();
 
       switch (choice) {
         case 1:
@@ -373,15 +373,10 @@ public void updatePhoneNumber(String newPhoneNumber) {
     }
 
     logger.info("Enter the ID of the house you want to book: ");
-    houseId = scanner.nextInt();
+    houseId = inputscanner.nextInt();
 
     House chosenHouse = homeRented(houseId);
-//    for (House house : availableHousesCopy) {
-//      if (house.getId() == houseId) {
-//        chosenHouse = house;
-//        break;
-//      }
-//    }
+
     
     
     if (chosenHouse == null) {
@@ -390,27 +385,27 @@ public void updatePhoneNumber(String newPhoneNumber) {
       return;
     }
 
-    scanner.nextLine(); // Consume newline character
+    inputscanner.nextLine(); // Consume newline character
     logger.info("Enter your full name: ");
-    String tenantName = scanner.nextLine();
+    String tenantName = inputscanner.nextLine();
 
     logger.info("Enter the number of months to rent: ");
-    int numMonths = scanner.nextInt();
+    int numMonths = inputscanner.nextInt();
     double rentAmount =checkbill( chosenHouse.getPrice(), numMonths);
 
 
-    scanner.nextLine(); // Consume newline character
+    inputscanner.nextLine(); // Consume newline character
     logger.info("Enter the payment method and details: ");
-    String paymentMethod = scanner.nextLine();
+    String paymentMethod = inputscanner.nextLine();
 
     chosenHouse.setRented(true);
 
     logger.info("Booking successful! You have booked the house:");
     logger.info("House Name: " + chosenHouse.getName());
-    logger.info("Tenant Name: " + tenantName);
-    logger.info("Number of Months: " + numMonths);
-    logger.info("Rent Amount: " + rentAmount);
-    logger.info("Payment Method: " + paymentMethod);
+    logger.info(new StringBuilder().append("Tenant Name: ").append(tenantName).toString());
+    logger.info(new StringBuilder().append("Number of Months: ").append(numMonths).toString());
+    logger.info(new StringBuilder().append("Rent Amount: ").append(rentAmount).toString());
+    logger.info(new StringBuilder().append("Payment Method: ").append(paymentMethod).toString());
     logger.info("---------------------------------------------");
     logger.info("---------------------------------------------");
 
@@ -421,7 +416,7 @@ public void updatePhoneNumber(String newPhoneNumber) {
     logger.info("1 - Go back to bookAccommodation");
     logger.info("2 - Go back to Dashboard menu");
 
-    int choice = scanner.nextInt();
+    int choice = inputscanner.nextInt();
 
     switch (choice) {
       case 1:
