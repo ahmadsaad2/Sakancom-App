@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class OwnerDashboard {
@@ -53,17 +54,20 @@ public class OwnerDashboard {
         Residences selectedResidence = null;
 
         // Find the residence with the given ID
-        for (Residences Residences : ownedResidences) {
+        for (Residences residences : ownedResidences) {
             if (Residences.getId() == residenceId) {
-                selectedResidence = Residences;
+                selectedResidence = residences;
                 break;
             }
         }
 
-        if (selectedResidence == null) {
-            logger.info(String.format("Residence with ID %d not found.", residenceId));
-            return;
-        }
+
+
+            if (selectedResidence == null && logger.isLoggable(Level.INFO)) {
+                logger.info(String.format("Residence with ID %d not found.", residenceId));
+                return;
+            }
+
 
         House newHouse = new House(residenceId, price, name, description, price, houseLocation, services);
         Tenant.availableHouses.add(newHouse);

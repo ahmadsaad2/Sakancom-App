@@ -1,6 +1,7 @@
 package owner.util;
 import java.util.Scanner;
 import java.util.*;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Admindashboard {
@@ -95,8 +96,11 @@ public class Admindashboard {
 		} else {
 			int i = 1;
 			for (House house : mhouses) {
-				logger.info(String.format("%d - Name: %s, ID: %d, Location: %s, Description: %s",
-						i++, house.getName(), house.getId(), house.getLocation(), house.getDescription()));
+				if (logger.isLoggable(Level.INFO)) {
+					logger.info(String.format("%d - Name: %s, ID: %d, Location: %s, Description: %s",
+							i++, house.getName(), house.getId(), house.getLocation(), house.getDescription()));
+				}
+
 			}
 		}
 	}
