@@ -1,4 +1,5 @@
 package ownertest;
+import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import io.cucumber.java.en.Given;
@@ -23,8 +24,9 @@ import owner.util.Tenant;
 
 
 @Then("the rent amount for the chosen house should be <{int}>")
-public void the_rent_amount_for_the_chosen_house_should_be(Integer int1) {
-    assertTrue(x==int1);
+public void the_rent_amount_for_the_chosen_house_should_be(Integer expectedRentAmount) {
+	assertTrue(x == expectedRentAmount);
 }
+
 
  }

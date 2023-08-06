@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Residences {
-    private static int id;
+    private static int idresidences;
     private String ownerInfo;
     private String location;
     private int floor;
@@ -14,7 +14,7 @@ public class Residences {
 
 
     public Residences(int residenceId, String ownerInfo, String location, int floor, int housePerFloor, String availableServices) {
-
+        idresidences=residenceId;
         this.ownerInfo = ownerInfo;
         this.location = location;
         this.floor = floor;
@@ -28,7 +28,7 @@ public class Residences {
 	}
 
 	public static int getId() {
-        return id;
+        return idresidences;
     }
 
     public static List<House> getmHouses() {

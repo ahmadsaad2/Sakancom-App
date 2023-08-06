@@ -303,10 +303,10 @@ public void updatePhoneNumber(String newPhoneNumber) {
   }
 
   public void removeFurniture() {
-    Scanner scanner;
-    scanner = new Scanner(System.in);
+    Scanner inputscanner;
+    inputscanner = new Scanner(System.in);
     logger.info("Enter the name of the furniture to remove:");
-    String furnitureName  = scanner.nextLine();
+    String furnitureName  = inputscanner.nextLine();
 
     boolean removed = removeFurnitureByName(furnitureName);
     if (removed) {
@@ -318,7 +318,7 @@ public void updatePhoneNumber(String newPhoneNumber) {
     logger.info("1 - Go back to Dashboard menu");
     logger.info("2 - Add more advertised furniture");
 
-    int choice = scanner.nextInt();
+    int choice = inputscanner.nextInt();
 
     switch (choice) {
       case 1:
@@ -344,7 +344,8 @@ public void updatePhoneNumber(String newPhoneNumber) {
     for (Residences ss : Owner.ownedResidences) {
       for(House house : Residences.getHouses())
       if (!house.isRented()) {
-        logger.info("House " + count);
+        logger.info("House is:");
+
         logger.info("ID: " + house.getId());
         logger.info("Name: " + house.getName());
         logger.info("Description: " + house.getDescription());
@@ -400,12 +401,14 @@ public void updatePhoneNumber(String newPhoneNumber) {
 
     chosenHouse.setRented(true);
 
+
     logger.info("Booking successful! You have booked the house:");
     logger.info("House Name: " + chosenHouse.getName());
-    logger.info(new StringBuilder().append("Tenant Name: ").append(tenantName).toString());
-    logger.info(new StringBuilder().append("Number of Months: ").append(numMonths).toString());
-    logger.info(new StringBuilder().append("Rent Amount: ").append(rentAmount).toString());
-    logger.info(new StringBuilder().append("Payment Method: ").append(paymentMethod).toString());
+
+    logger.info("Tenant Name: " + tenantName);
+    logger.info("Number of Months: " + numMonths);
+    logger.info("Rent Amount: " + rentAmount);
+    logger.info("Payment Method: " + paymentMethod);
     logger.info("---------------------------------------------");
     logger.info("---------------------------------------------");
 
@@ -443,11 +446,13 @@ public void updatePhoneNumber(String newPhoneNumber) {
 
   public void viewProfile() {
     logger.info("Viewing tenant profile...");
-    logger.info("Name: " + name);
-    logger.info("Phone Number: " + phoneNumber);
-    logger.info("Bank Card: " + bankCard);
-    logger.info("Email: " + email);
-    logger.info("Password: " + password);
+    logger.info(() -> "Name: " + name);
+    logger.info(() -> "Phone Number: " + phoneNumber);
+    logger.info(() -> "Bank Card: " + bankCard);
+    logger.info(() -> "Email: " + email);
+    logger.info(() -> "Password: " + password);
+
+
 
     logger.info("1 - Go back to Dashboard menu");
     logger.info("2 - Edit Profile Information");
@@ -517,9 +522,9 @@ public boolean homeRemove(int id) {
 	
 for (House house : HousesAfterRemove) {
 
-	  logger.info(String.valueOf(house.getId())) ;
-	  logger.info(String.valueOf(id));
-	  logger.info("") ;
+  logger.info(() -> String.valueOf(house.getId()));
+  logger.info(() -> String.valueOf(id));
+  logger.info(() -> "");
     if (house.getId() == id){
       logger.info("Method invoked because the condition is met.");
 
