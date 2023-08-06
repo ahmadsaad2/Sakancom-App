@@ -171,7 +171,13 @@ public void updatePhoneNumber(String newPhoneNumber) {
           logger.info("Logged out successfully");
           isLoggedIn = false;
         }
-        case 5 -> activeTenant.viewOwnedHouses(); // View owned houses added by the tenant
+        case 5 ->{
+        	if (activeTenant != null) {
+        	    activeTenant.viewOwnedHouses(); // View owned houses added by the tenant
+        	} else {
+        		logger.info("Error: activeTenant is null.");
+        	}
+        }
         default -> logger.info("Invalid choice!");
       }
 
