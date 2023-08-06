@@ -1,4 +1,5 @@
 package ownertest;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
  
 import io.cucumber.java.en.Then;
@@ -25,7 +26,7 @@ public class RentedHouse {
 
 	@Then("the output <{string}>")
 	public void the_output(String string) {
-	 assertTrue(T.homeRented(idhome2)==null);    
+		assertNull(T.homeRented(idhome2));
 	
 	}
 }

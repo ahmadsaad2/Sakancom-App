@@ -23,7 +23,7 @@ this.username=username;
 this.password=password;
 this.type=type;
 }
-private static ArrayList<User> user= new ArrayList<>();
+private static ArrayList<User> usersystem= new ArrayList<>();
 private Scanner first;
 
 public static boolean testuser;
@@ -31,12 +31,12 @@ boolean flaga=true;
 boolean flago=false;
 boolean flagt=false;
 public  boolean  login(String username1, String password1) {
-	user.add(new User("ahmad","789",UserType.AdminStrator));
-	user.add(new User("laila","123",UserType.Tenant));
-	user.add(new User("ali","123",UserType.Tenant));
-	user.add(new User("noor","123",UserType.Tenant));
-	user.add(new User("suha","123",UserType.Tenant));
-	user.add(new User("shahad","123456",UserType.Owner));
+	usersystem.add(new User("ahmad","789",UserType.AdminStrator));
+	usersystem.add(new User("laila","123",UserType.Tenant));
+	usersystem.add(new User("ali","123",UserType.Tenant));
+	usersystem.add(new User("noor","123",UserType.Tenant));
+	usersystem.add(new User("suha","123",UserType.Tenant));
+	usersystem.add(new User("shahad","123456",UserType.Owner));
 
  testuser= check(username1, password1);
  if(testuser){
@@ -47,7 +47,7 @@ public  boolean  login(String username1, String password1) {
 
 private static boolean check(String username, String password) {
 	logger.info(username);
-	for(User user1: user) {
+	for(User user1: usersystem) {
 		if (user1.getUsername().equals(username) && user1.getPassword().equals(password)) {
 			if(user1.getType().equals(UserType.AdminStrator)) {
 				 Admindashboard adminDashboard = new Admindashboard();

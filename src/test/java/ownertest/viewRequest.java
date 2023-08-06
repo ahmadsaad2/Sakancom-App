@@ -1,5 +1,6 @@
 package ownertest;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -30,7 +31,7 @@ public class viewRequest {
                 break;
             }
         }
-        assertTrue(flage==1);
+        assertEquals(1, flage);
 
     }
 
@@ -46,9 +47,7 @@ public class viewRequest {
 
 
     @Then("the outputt <{string}>")
-    public void the_outputt(String string) {
-        assertTrue(flage2==1);
+    public void the_outputt(String expectedOutput) {
+        assertEquals(1, flage2);
     }
-
-
 }

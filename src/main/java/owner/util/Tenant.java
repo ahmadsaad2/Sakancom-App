@@ -344,7 +344,7 @@ public void updatePhoneNumber(String newPhoneNumber) {
     for (Residences ss : Owner.ownedResidences) {
       for(House house : Residences.getHouses())
       if (!house.isRented()) {
-        logger.info(new StringBuilder().append("House ").append(count).toString());
+        logger.info("House " + count);
         logger.info("ID: " + house.getId());
         logger.info("Name: " + house.getName());
         logger.info("Description: " + house.getDescription());
@@ -516,11 +516,14 @@ public static  int profileChoice;
 public boolean homeRemove(int id) {
 	
 for (House house : HousesAfterRemove) {
+
 	  logger.info(String.valueOf(house.getId())) ;
 	  logger.info(String.valueOf(id));
 	  logger.info("") ;
-    if (house.getId() == id)
-     return false;
+    if (house.getId() == id){
+      logger.info("Method invoked because the condition is met.");
+
+     return false;}
 }
   	   return true;
   
