@@ -7,9 +7,10 @@ import  io.cucumber.java.en.Then;
 import  io.cucumber.java.en.When;
 import owner.util.Tenant;
 
- 
-  
- public class billHouse {
+import java.util.Optional;
+
+
+public class billHouse {
 	 Tenant tenant;
 	 int x;
 	 @Given("inter number mounth and give the bill")
@@ -25,8 +26,7 @@ import owner.util.Tenant;
 
 @Then("the rent amount for the chosen house should be <{int}>")
 public void the_rent_amount_for_the_chosen_house_should_be(Integer expectedRentAmount) {
-	assertTrue(x == expectedRentAmount);
+	assertEquals(expectedRentAmount, Optional.of(x));
 }
-
 
  }

@@ -403,12 +403,11 @@ public void updatePhoneNumber(String newPhoneNumber) {
 
 
     logger.info("Booking successful! You have booked the house:");
-    logger.info("House Name: " + chosenHouse.getName());
-
-    logger.info("Tenant Name: " + tenantName);
-    logger.info("Number of Months: " + numMonths);
-    logger.info("Rent Amount: " + rentAmount);
-    logger.info("Payment Method: " + paymentMethod);
+    logger.info(() -> "House Name: " + chosenHouse.getName());
+    logger.info(() -> "Tenant Name: " + tenantName);
+    logger.info(() -> "Number of Months: " + numMonths);
+    logger.info(() -> "Rent Amount: " + rentAmount);
+    logger.info(() -> "Payment Method: " + paymentMethod);
     logger.info("---------------------------------------------");
     logger.info("---------------------------------------------");
 
