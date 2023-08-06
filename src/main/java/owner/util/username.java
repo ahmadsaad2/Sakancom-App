@@ -4,6 +4,7 @@ package owner.util;
 
 import java.util.Scanner;
 
+import static owner.util.Tenant.scanner;
 
 
 public class username {
@@ -22,8 +23,15 @@ public static void main(String []args) {
         System.out.print("Enter password :");
         us.password = first.nextLine();
         us.login(us.username, us.password);
+
+
+        System.out.print("Do you want to continue? (yes/no): ");
+        String answer = scanner.nextLine().toLowerCase();
+        if (answer.equals("no")) {
+            break;
+        }
     }
 }
-
-
 }
+
+
