@@ -23,12 +23,10 @@ public class Tenant {
   private static final String NAME_LABEL = "Name : ";
   private static final String INVALID_LABEL= "Invalid choice!" ;
   private static final String GOBACK_LABEL= "1 - Go Back TO Dashboard" ;
-  //private static final String PRICE_LABEL = "Price: ";
 
-   
   
 
-  public static int houseId = 0;
+  public static int houseId;
 
   private List<House> ownedHouses;
   public static boolean tenancheck1 = false;
