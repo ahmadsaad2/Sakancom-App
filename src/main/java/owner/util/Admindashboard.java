@@ -51,12 +51,12 @@ public class Admindashboard {
 
 	private void acceptandreject() {
 
-		if (residences.getmHouses() == null) {
+		if (Residences.getmHouses() == null) {
 			logger.info("NO pending houses");
 		} else {
 			logger.info("enter a id for house to accept or reject it" );
 		int id1 = scanner.nextInt();
-		if(residences.getId()==id1){
+		if(Residences.getId()==id1){
 			logger.info("Choose action :1 for Accept \n 2 for Reject");
 		if(takeAction(scanner.nextInt(),id1)==1) {
 			logger.info("House accepted Successfully");
@@ -75,12 +75,12 @@ public class Admindashboard {
 
         House hos=new House(1,1, "house 5", "description5", 2000, "nablus", "Services 1");
         House hos2=new House(1,2, "house 5", "description5", 2000, "nablus", "Services 1");
-        residences.addmHouse(hos);
-        residences.addmHouse(hos2);
+        Residences.addmHouse(hos);
+        Residences.addmHouse(hos2);
 	    if (nextInt != 1 && nextInt != 2) {
 	        return 0;
 	    }
-	    List<House> mHouses = residences.getmHouses();
+	    List<House> mHouses = Residences.getmHouses();
 
 	    if (id1 < 1 || id1 > mHouses.size()) {
 	    	  logger.info("Invalid ID. House not found.");
@@ -93,7 +93,7 @@ public class Admindashboard {
 	    }
 
 	    if (nextInt == 1) {
-	        residences.getHouses().add(mHouses.get(--id1));
+	        Residences.getHouses().add(mHouses.get(--id1));
 	        mHouses.remove(id1);
 	        return 1;
 	    } else {
@@ -104,9 +104,9 @@ public class Admindashboard {
 	
 
 	public void viewRequests() {
-		List<House> mhouses = residences.getmHouses();
+		List<House> mhouses = Residences.getmHouses();
 		logger.info("test");
-		if (residences.getmHouses() == null) {
+		if (Residences.getmHouses() == null) {
 			logger.info("NO pending houses");
 		} else {
 			int i = 1;
