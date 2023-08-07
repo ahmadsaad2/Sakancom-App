@@ -83,12 +83,12 @@ public class Admindashboard {
 	    List<House> mHouses = Residences.getmHouses();
 
 	    if (id1 < 1 || id1 > mHouses.size()) {
-	        System.out.println("Invalid ID. House not found.");
+	    	  logger.info("Invalid ID. House not found.");
 	        return 0;
 	    }
 
 	    if (mHouses.isEmpty()) {
-	        System.out.println("NO pending houses.");
+	    	  logger.info("NO pending houses.");
 	        return 0;
 	    }
 
