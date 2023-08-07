@@ -1,7 +1,7 @@
 package owner.util;
 import java.util.List;
 
-import java.util.NoSuchElementException;
+
 import java.util.Scanner;
 
 
@@ -26,7 +26,7 @@ public class Tenant {
     availableHouses = new ArrayList<>();
   }
 
-  public int houseId;
+  public static int houseId = 0;
 
   private List<House> ownedHouses;
   public static boolean tenancheck1 =false ;
