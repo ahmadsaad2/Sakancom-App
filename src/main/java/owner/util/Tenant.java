@@ -159,9 +159,9 @@ public class Tenant {
     // Create multiple tenant instances to simulate different tenants logging in
     Tenant tenant1 = new Tenant("laila", "123456789", "1234 5678 3456", "laila@com", "123");
 
-    tenant1.addHouse(new House(1,1, "house 1", "description", 2000, "nablus", "Services 1"), true);
-    tenant1.addHouse(new House(2,1, "House 2", "description", 1500, "nablus", "Services 2"), false);
-    tenant1.addHouse(new House(3,1, "House 3", "description", 1500, "nablus", "Services 3"), false);
+    tenant1.addHouse(new House(1,1, "house 1", DECRRIPTION_LABEL, 2000, "nablus", "Services 1"), true);
+    tenant1.addHouse(new House(2,1, "House 2", DECRRIPTION_LABEL, 1500, "ramallah", "Services 2"), false);
+    tenant1.addHouse(new House(3,1, "House 3", DECRRIPTION_LABEL, 1500, "jenin", "Services 3"), false);
     boolean isLoggedIn = true;
     tenancheck1=true;
     while (isLoggedIn) {
