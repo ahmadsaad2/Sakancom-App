@@ -130,11 +130,13 @@ public class Tenant {
   public void setPassword(String password) {
     this.password = password;
   }
+  private static final String DESCRIPTION_PREFIX = "Description: ";
+
   public void viewOwnedHouses() {
     logger.info("Owned Houses:");
     for (House house : ownedHouses) {
       logger.info("House Name: " + house.getName());
-      logger.info("Description: " + house.getDescription());
+      logger.info(DESCRIPTION_PREFIX + house.getDescription());
       logger.info("Price: " + house.getPrice());
       logger.info("Location: " + house.getLocation());
       logger.info("Services: " + house.getServices());
