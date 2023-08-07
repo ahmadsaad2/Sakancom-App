@@ -72,21 +72,34 @@ public class Admindashboard {
 	}}
 
 	public int takeAction(int nextInt, int id1) {
-		if(nextInt !=1 && nextInt !=2)
-			return 0;
-		else if(nextInt==1) {
-			Residences.getHouses().add(	Residences.getmHouses().get(--id1));
-			Residences.getmHouses().remove(id1);
-			return 1;
 
-		}
-		else {
+        House hos=new House(1,1, "house 5", "description5", 2000, "nablus", "Services 1");
+        House hos2=new House(1,2, "house 5", "description5", 2000, "nablus", "Services 1");
+        Residences.addmHouse(hos);
+        Residences.addmHouse(hos2);
+	    if (nextInt != 1 && nextInt != 2) {
+	        return 0;
+	    }
+	    List<House> mHouses = Residences.getmHouses();
 
-			Residences.getmHouses().remove(--id1);
-			return 2;
-		}
+	    if (id1 < 1 || id1 > mHouses.size()) {
+	        System.out.println("Invalid ID. House not found.");
+	        return 0;
+	    }
 
+	    if (mHouses.isEmpty()) {
+	        System.out.println("NO pending houses.");
+	        return 0;
+	    }
 
+	    if (nextInt == 1) {
+	        Residences.getHouses().add(mHouses.get(--id1));
+	        mHouses.remove(id1);
+	        return 1;
+	    } else {
+	        mHouses.remove(--id1);
+	        return 2;
+	    }
 	}
 
 	public void viewRequests() {
