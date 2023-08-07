@@ -12,7 +12,7 @@ public class Tenant {
   private String bankCard;
   private String email;
   private String password;
-  private static  Scanner inputscanner = new Scanner(System.in);
+   Scanner inputscanner = new Scanner(System.in);
   public List<House> housesAfterRemove = new ArrayList<>();
   private List<Furniture> advertisedFurniture;
   private List<House> availableHouses;
@@ -23,9 +23,8 @@ public class Tenant {
   private static final String NAME_LABEL = "Name : ";
   private static final String INVALID_LABEL= "Invalid choice!" ;
   private static final String GOBACK_LABEL= "1 - Go Back TO Dashboard" ;
-
+  static Scanner sc = new Scanner(System.in);
   
-  private static int choice;
   public static int houseId;
 
   private List<House> ownedHouses;
@@ -159,8 +158,7 @@ public class Tenant {
     tenancheck1=true;
     while (isLoggedIn) {
 
-
-    	choice = inputscanner.nextInt();
+    	int choice = sc.nextInt();
 
       switch (choice) {
         case 1 -> {
@@ -213,7 +211,7 @@ public class Tenant {
     boolean isLoggedIn2 = true;
 
     while (isLoggedIn2) {
-    	choice = inputscanner.nextInt(); // Use the existing scanner for input
+    	int choice = inputscanner.nextInt(); // Use the existing scanner for input
 
       switch (choice) {
         case 1:
@@ -257,7 +255,7 @@ public class Tenant {
     }
 
  
-       choice = inputscanner.nextInt();
+      int choice = inputscanner.nextInt();
 
       switch (choice) {
         case 1:
@@ -293,7 +291,7 @@ public class Tenant {
     logger.info(GOBACK_LABEL);
     logger.info("2 - Add more advertised furniture");
     logger.info("3 - Remove advertised furniture");
-     choice = inputscanner.nextInt();
+    int choice = inputscanner.nextInt();
 
     switch (choice) {
       case 1:
@@ -326,7 +324,7 @@ public class Tenant {
     logger.info(GOBACK_LABEL);
     logger.info("2 - Add more advertised furniture");
 
-     choice = inputscanner.nextInt();
+    int choice = inputscanner.nextInt();
 
     switch (choice) {
       case 1:
@@ -352,7 +350,7 @@ public class Tenant {
       logger.info("No owned residences.");
       logger.info("1 - Go to showFurniture");
 
-       choice = inputscanner.nextInt();
+      int choice = inputscanner.nextInt();
 
       switch (choice) {
         case 1:
@@ -386,7 +384,7 @@ public class Tenant {
         logger.info("No available houses at the moment. Please check again later.");
         logger.info("1 - Go to showFurniture");
 
-         choice = inputscanner.nextInt();
+        int choice = inputscanner.nextInt();
 
         switch (choice) {
           case 1:
@@ -442,7 +440,7 @@ public class Tenant {
       logger.info("1 - Go back to bookAccommodation");
       logger.info("2 - Go back to Dashboard menu");
 
-       choice = inputscanner.nextInt();
+      int  choice = inputscanner.nextInt();
 
       switch (choice) {
         case 1:
@@ -479,7 +477,7 @@ public class Tenant {
 
     logger.info(GOBACK_LABEL);
     logger.info("2 - Edit Profile Information");
-     choice = inputscanner.nextInt();
+    int choice = inputscanner.nextInt();
 
     switch (choice) {
       case 1:
