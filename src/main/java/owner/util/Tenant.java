@@ -30,7 +30,7 @@ public class Tenant {
   private List<House> ownedHouses;
   public static boolean tenancheck1 = false;
   List<House> availableHousesCopy = new ArrayList<>();
-  public  boolean Remove ;
+  public  boolean remove ;
   public Tenant(String name, String phoneNumber, String bankCard, String email, String password) {
     this.name = name;
     this.phoneNumber = phoneNumber;
@@ -436,7 +436,7 @@ public class Tenant {
       addRentedHouse(chosenHouse.getName());
       availableHouses.remove(chosenHouse);
       housesAfterRemove = availableHouses;
-      Remove = homeRemove(houseId);
+      remove = homeRemove(houseId);
       logger.info("1 - Go back to bookAccommodation");
       logger.info("2 - Go back to Dashboard menu");
 
@@ -460,10 +460,10 @@ public class Tenant {
   public  String newBankCard;
   public  String newEmail;
   public  String newPassword;
-  public boolean FlageUpdatePassword = false;
-  public boolean FlageUpdatePhone = false;
-  public boolean FlageUpdateBank = false;
-  public boolean FlageUpdateEmail = false;
+  public boolean flageUpdatePassword = false;
+  public boolean flageUpdatePhone = false;
+  public boolean flageUpdateBank = false;
+  public boolean flageUpdateEmail  = false;
 
   public void viewProfile() {
     logger.info("Viewing tenant profile...");
@@ -509,28 +509,28 @@ public class Tenant {
         newPhoneNumber = inputscanner.nextLine();
         updatePhoneNumber(newPhoneNumber);
         logger.info("Phone number updated successfully!");
-        FlageUpdatePhone = true;
+        flageUpdatePhone = true;
         break;
       case 2:
         logger.info("Enter new bank card: ");
         newBankCard = inputscanner.nextLine();
         updateBankCard(newBankCard);
         logger.info("Bank card updated successfully!");
-        FlageUpdateBank = true;
+        flageUpdateBank = true;
         break;
       case 3:
         logger.info("Enter new email: ");
         newEmail = inputscanner.nextLine();
         updateEmail(newEmail);
         logger.info("Email updated successfully!");
-        FlageUpdateEmail = true;
+        flageUpdateEmail = true;
         break;
       case 4:
         logger.info("Enter new password: ");
         newPassword = inputscanner.nextLine();
         updatePassword(newPassword);
         logger.info("Password updated successfully!");
-        FlageUpdatePassword = true;
+        flageUpdatePassword = true;
         break;
       default:
         logger.info(INVALID_LABEL);
