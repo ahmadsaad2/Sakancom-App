@@ -275,8 +275,6 @@ public class Tenant {
 
   }
   public void advertiseFurniture() {
-    inputscanner = new Scanner(System.in);
-
     logger.info("Enter furniture details:");
 
     logger.info(NAME_LABEL);
