@@ -25,7 +25,7 @@ public class Tenant {
   private static final String GOBACK_LABEL= "1 - Go Back TO Dashboard" ;
   static Scanner sc = new Scanner(System.in);
   
-  public static int houseId;
+  public int houseId;
 
   private List<House> ownedHouses;
   public static boolean tenancheck1 = false;
@@ -491,7 +491,7 @@ public class Tenant {
         break;
     }
   }
-  public static  int profileChoice;
+  public  int profileChoice;
 
   public int updateProfileInformation() {
     logger.info("---------------------");
