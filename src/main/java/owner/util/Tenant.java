@@ -146,6 +146,11 @@ public class Tenant {
     }
   }
   public static void displayDashboard() {
+	  logger.info("Welcome to Sakancom!");
+		logger.info("1 - Available Housing & Book Accommodation");
+		logger.info("2 - Show furniture");
+		logger.info("3 - View Tenant Profile");
+		logger.info("4 - Log Out");
     Tenant activeTenant = null; // Initialize activeTenant variable
 
     // Create multiple tenant instances to simulate different tenants logging in
