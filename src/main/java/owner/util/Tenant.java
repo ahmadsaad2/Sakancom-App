@@ -259,7 +259,7 @@ public class Tenant {
       logger.info("-------------------------");
     }
 
-    try (Scanner inputscanner = new Scanner(System.in)) {
+ 
       int choice = inputscanner.nextInt();
 
       switch (choice) {
@@ -271,7 +271,7 @@ public class Tenant {
           break;
       }
     }
-  }
+  
   public int checkbill(int numberOfMounth , int cost ) {
     int rentAmount = cost * numberOfMounth;
     return rentAmount;
@@ -353,8 +353,6 @@ public class Tenant {
     logger.info("Available houses:");
      count = 1;
 
-
-  //  List<House> availableHousesCopy = new ArrayList<>();
     if (Owner.isOwnedResidencesEmpty()) {
       logger.info("No owned residences.");
       logger.info("1 - Go to showFurniture");
