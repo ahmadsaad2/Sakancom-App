@@ -25,9 +25,9 @@ public class Residences {
     }
 
     public Residences() {
-    }
+	}
 
-    public static int getId() {
+	public static int getId() {
         return idresidences;
     }
 
