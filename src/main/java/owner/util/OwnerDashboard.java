@@ -182,7 +182,7 @@ break;
           
           logger.info("Residence ID: ");
            residenceId = scanner.nextInt();
-        checkresidenceId =checkresidenceId( residenceId);
+        checkresidenceId =isResidenceIdValid( residenceId);
           scanner.nextLine(); // Consume the newline character
           
           logger.info("Owner Information: ");
@@ -210,7 +210,7 @@ break;
     }
     
 
-    public boolean checkresidenceId( int residenceId2) {
+    public boolean isResidenceIdValid( int residenceId2) {
 
         for (Residences residence : ownedResidences) {
 
