@@ -20,8 +20,8 @@ public class Residences {
         this.floor = floor;
         this.housePerFloor = housePerFloor;
         this.availableServices = availableServices;
-        this.houses = new ArrayList<>();
-        this.mhouses=new ArrayList<>();
+        Residences.houses = new ArrayList<>();
+        Residences.mhouses=new ArrayList<>();
     }
 
     public Residences() {
