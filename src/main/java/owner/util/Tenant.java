@@ -12,7 +12,7 @@ public class Tenant {
   private String bankCard;
   private String email;
   private String password;
-  Scanner inputscanner = new Scanner(System.in);
+  static Scanner inputscanner = new Scanner(System.in);
   public List<House> housesAfterRemove = new ArrayList<>();
   private List<Furniture> advertisedFurniture;
   private List<House> availableHouses;
@@ -30,8 +30,6 @@ public class Tenant {
 
   private List<House> ownedHouses;
   public static boolean tenancheck1 = false;
-
-  static Scanner scanner = new Scanner(System.in);
   List<House> availableHousesCopy = new ArrayList<>();
   public static boolean Remove ;
   public Tenant(String name, String phoneNumber, String bankCard, String email, String password) {
@@ -162,7 +160,7 @@ public class Tenant {
     while (isLoggedIn) {
 
 
-      int choice = scanner.nextInt();
+      int choice = inputscanner.nextInt();
 
       switch (choice) {
         case 1 -> {
@@ -210,12 +208,12 @@ public class Tenant {
     logger.info("Welcome to your furniture view...");
     logger.info("1 - Showing advertised furniture");
     logger.info("2 - Advertise furniture");
-    logger.info(GOBACK_LABEL);
+    logger.info("3 - Go back to Dashboard menu");
 
     boolean isLoggedIn2 = true;
 
     while (isLoggedIn2) {
-      int choice = scanner.nextInt(); // Use the existing scanner for input
+      int choice = inputscanner.nextInt(); // Use the existing scanner for input
 
       switch (choice) {
         case 1:
@@ -483,7 +481,7 @@ public class Tenant {
 
     logger.info(GOBACK_LABEL);
     logger.info("2 - Edit Profile Information");
-    int choice = scanner.nextInt();
+    int choice = inputscanner.nextInt();
 
     switch (choice) {
       case 1:
@@ -506,34 +504,34 @@ public class Tenant {
     logger.info("3 - Update email");
     logger.info("4 - Update password");
 
-    profileChoice = scanner.nextInt();
-    scanner.nextLine(); // Consume newline character
+    profileChoice = inputscanner.nextInt();
+    inputscanner.nextLine(); // Consume newline character
 
     switch (profileChoice) {
       case 1:
         logger.info("Enter new phone number: ");
-        newPhoneNumber = scanner.nextLine();
+        newPhoneNumber = inputscanner.nextLine();
         updatePhoneNumber(newPhoneNumber);
         logger.info("Phone number updated successfully!");
         FlageUpdatePhone = true;
         break;
       case 2:
         logger.info("Enter new bank card: ");
-        newBankCard = scanner.nextLine();
+        newBankCard = inputscanner.nextLine();
         updateBankCard(newBankCard);
         logger.info("Bank card updated successfully!");
         FlageUpdateBank = true;
         break;
       case 3:
         logger.info("Enter new email: ");
-        newEmail = scanner.nextLine();
+        newEmail = inputscanner.nextLine();
         updateEmail(newEmail);
         logger.info("Email updated successfully!");
         FlageUpdateEmail = true;
         break;
       case 4:
         logger.info("Enter new password: ");
-        newPassword = scanner.nextLine();
+        newPassword = inputscanner.nextLine();
         updatePassword(newPassword);
         logger.info("Password updated successfully!");
         FlageUpdatePassword = true;
