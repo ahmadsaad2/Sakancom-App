@@ -26,6 +26,7 @@ public class Tenant {
   private static final String DECRRIPTION_LABEL = "Description : ";
   private static final String LOCATION_LABEL = "location : ";
   private static final String NAME_LABEL = "Name : ";
+  private static final String INVALID_LABEL= "Invalid choice!" ;
   //private static final String PRICE_LABEL = "Price: ";
 
    
@@ -198,7 +199,7 @@ public class Tenant {
             logger.info("Error: activeTenant is null.");
           }
         }
-        default -> logger.info("Invalid choice!");
+        default -> logger.info(INVALID_LABEL);
       }
 
     }
@@ -233,7 +234,7 @@ public class Tenant {
           isLoggedIn2 = false;
           break;
         default:
-          logger.info("Invalid choice!");
+          logger.info(INVALID_LABEL);
           break;
       }
     }}
@@ -271,7 +272,7 @@ public class Tenant {
           showFurniture();
           break;
         default:
-          logger.info("Invalid input");
+          logger.info(INVALID_LABEL);
           break;
       }
     }
@@ -315,7 +316,7 @@ public class Tenant {
         removeFurniture();
         break;
       default:
-        logger.info("Invalid input");
+        logger.info(INVALID_LABEL);
         break;
     }
   }
@@ -345,7 +346,7 @@ public class Tenant {
         advertiseFurniture();
         break;
       default:
-        logger.info("Invalid input");
+        logger.info(INVALID_LABEL);
         break;
     }
   }
@@ -368,7 +369,7 @@ public class Tenant {
           showFurniture();
           break;
         default:
-          logger.info("Invalid input");
+          logger.info(INVALID_LABEL);
           break;
       }
     } else {
@@ -402,7 +403,7 @@ public class Tenant {
             showFurniture();
             break;
           default:
-            logger.info("Invalid input");
+            logger.info(INVALID_LABEL);
             break;
         }
       }
@@ -462,7 +463,7 @@ public class Tenant {
           displayDashboard();
           break;
         default:
-          logger.info("Invalid input");
+          logger.info(INVALID_LABEL);
           break;
       }
     }
@@ -498,7 +499,7 @@ public class Tenant {
         updateProfileInformation();
         break;
       default:
-        logger.info("Invalid input");
+        logger.info(INVALID_LABEL);
         break;
     }
   }
@@ -544,7 +545,7 @@ public class Tenant {
         FlageUpdatePassword = true;
         break;
       default:
-        logger.info("Invalid choice!");
+        logger.info(INVALID_LABEL);
         break;
     }
     viewProfile();
