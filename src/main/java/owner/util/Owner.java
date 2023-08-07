@@ -68,8 +68,7 @@ public class Owner {
     public boolean  ckeck(int input) {
         OwnerDashboard own=new OwnerDashboard();
          residences= own.fun();
-        if( Residences.getId()!=input )return true;
-        else
-            return false;
+         return Residences.getId() != input;
+
     }
 }
