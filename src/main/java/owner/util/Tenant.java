@@ -354,7 +354,7 @@ public class Tenant {
      count = 1;
 
 
-    List<House> availableHousesCopy = new ArrayList<>();
+  //  List<House> availableHousesCopy = new ArrayList<>();
     if (Owner.isOwnedResidencesEmpty()) {
       logger.info("No owned residences.");
       logger.info("1 - Go to showFurniture");
