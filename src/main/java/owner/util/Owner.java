@@ -9,7 +9,7 @@ public class Owner {
     private String username;
     private String password;
     private static final List<Residences> ownedResidences = new ArrayList<>();
-
+    Residences newResidence;
 
     public Owner(String name, int id, String username, String password) {
         this.name = name;
@@ -75,8 +75,8 @@ public class Owner {
     
     public boolean  ckeck(int input) {
     	OwnerDashboard own=new OwnerDashboard();
-    	Residences newResidence= own.fun();
-		if( newResidence.getId()!=input )return true;
+    	 newResidence= own.fun();
+		if( Residences.getId()!=input )return true;
 		else
 		return false;
     }
