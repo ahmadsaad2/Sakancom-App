@@ -36,10 +36,7 @@ public class User {
 		usersystem.add(new User("shahad","123456",UserType.OWNER));
 
 		testuser= check(username1, password1);
-		if(testuser){
-			return true;
-		}
-		return false;
+		return testuser;
 	}
 	//h
 	private static boolean check(String username, String password) {
