@@ -22,7 +22,12 @@ public class Tenant {
   private List<Furniture> advertisedFurniture;
   private List<House> availableHouses;
   int count;
-  
+  private static final String PRICE_LABEL = "Price: ";
+  private static final String DECRRIPTION_LABEL = "Description : ";
+  private static final String LOCATION_LABEL = "location : ";
+  private static final String NAME_LABEL = "Name : ";
+  //private static final String PRICE_LABEL = "Price: ";
+
    
   
 
@@ -131,15 +136,14 @@ public class Tenant {
   public void setPassword(String password) {
     this.password = password;
   }
-  private static final String DESCRIPTION_PREFIX = "Description: ";
 
   public void viewOwnedHouses() {
     logger.info("Owned Houses:");
     for (House house : ownedHouses) {
       logger.info("House Name: " + house.getName());
-      logger.info(DESCRIPTION_PREFIX + house.getDescription());
-      logger.info("Price: " + house.getPrice());
-      logger.info("Location: " + house.getLocation());
+      logger.info(DECRRIPTION_LABEL + house.getDescription());
+      logger.info(PRICE_LABEL + house.getPrice());
+      logger.info( LOCATION_LABEL + house.getLocation());
       logger.info("Services: " + house.getServices());
       logger.info("-------------------------");
     }
@@ -253,10 +257,10 @@ public class Tenant {
     logger.info("Showing advertised furniture...");
     logger.info("1 - Go back to Dashboard menu");
     for (Furniture furniture : advertisedFurniture) {
-      logger.info("Name: " + furniture.getName());
-      logger.info("Description: " + furniture.getDescription());
-      logger.info("Price: " + furniture.getPrice());
-      logger.info("-------------------------");
+      logger.info(NAME_LABEL + furniture.getName());
+      logger.info(DECRRIPTION_LABEL+ furniture.getDescription());
+      logger.info(PRICE_LABEL+ furniture.getPrice());
+     
     }
 
  
@@ -282,13 +286,13 @@ public class Tenant {
 
     logger.info("Enter furniture details:");
 
-    logger.info("Name: ");
+    logger.info(NAME_LABEL);
     String furnitureName  = inputscanner.nextLine();
 
-    logger.info("Description: ");
+    logger.info(DECRRIPTION_LABEL);
     String description = inputscanner.nextLine();
 
-    logger.info("Price: ");
+    logger.info(PRICE_LABEL);
     double price = inputscanner.nextDouble();
 
     Furniture furniture = new Furniture(furnitureName , description, price);
@@ -378,9 +382,9 @@ public class Tenant {
 
             logger.info("ID: " + house.getId());
             logger.info("Name: " + house.getName());
-            logger.info("Description: " + house.getDescription());
-            logger.info("Price: " + house.getPrice());
-            logger.info("Location: " + house.getLocation());
+            logger.info(DECRRIPTION_LABEL + house.getDescription());
+            logger.info(PRICE_LABEL + house.getPrice());
+            logger.info(LOCATION_LABEL + house.getLocation());
             logger.info("Services: " + house.getServices());
             logger.info("-------------------------");
             count++;
