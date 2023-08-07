@@ -18,12 +18,12 @@ public class viewRequest {
     public void i_will_inter_the_number_to_add_rented_house_by_owner(Integer int1) {
         c=int1;
         house2 = new House(int1, 2, "House 2", "Description 2", 1500, "street-17", "sensative flam");
-        Residences.addmHouse(house2);
+        res.addmHouse(house2);
     }
 
     @Then("i will add it to pending house in admin")
     public void i_will_add_it_to_pending_house_in_admin() {
-        for (House h : Residences.getmHouses()) {
+        for (House h : res.getmHouses()) {
             if (h.getId() == c) {
                 flage=1;
                 break;
@@ -35,7 +35,7 @@ public class viewRequest {
 
     @When("i will inter the number <{int}> and fail add rented house by owner")
     public void i_will_inter_the_number_and_fail_add_rented_house_by_owner(Integer int1) {
-        for (House h : Residences.getmHouses()) {
+        for (House h : res.getmHouses()) {
             if (h.getId() != c) {
                 flage2 = 1;
                 break;

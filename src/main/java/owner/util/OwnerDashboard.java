@@ -1,5 +1,4 @@
 package owner.util;
-import java.util.ArrayList;
 
 import java.util.List;
 import java.util.Scanner;
@@ -20,8 +19,6 @@ public class OwnerDashboard {
     private Owner owner;
     private List<Residences> ownedResidences;
     Scanner scanner = new Scanner(System.in);
-    private List<String> saveDataToArrayList;
-    private List<String> loadDataFromArrayList;
     public OwnerDashboard() {
     	
     	}
