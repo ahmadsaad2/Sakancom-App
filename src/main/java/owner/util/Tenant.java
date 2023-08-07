@@ -30,7 +30,7 @@ public class Tenant {
   private List<House> ownedHouses;
   public static boolean tenancheck1 = false;
   List<House> availableHousesCopy = new ArrayList<>();
-  public static boolean Remove ;
+  public  boolean Remove ;
   public Tenant(String name, String phoneNumber, String bankCard, String email, String password) {
     this.name = name;
     this.phoneNumber = phoneNumber;
@@ -456,10 +456,10 @@ public class Tenant {
       }
     }
   }
-  public static String newPhoneNumber;
-  public static String newBankCard;
-  public static String newEmail;
-  public static String newPassword;
+  public  String newPhoneNumber;
+  public  String newBankCard;
+  public  String newEmail;
+  public  String newPassword;
   public boolean FlageUpdatePassword = false;
   public boolean FlageUpdatePhone = false;
   public boolean FlageUpdateBank = false;
