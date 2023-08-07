@@ -20,7 +20,7 @@ public class OwnerDashboard {
     private List<Residences> ownedResidences;
     Scanner scanner = new Scanner(System.in);
     public OwnerDashboard() {
-    	
+    	localOwnedResidences=null;
     	}
 
     public OwnerDashboard(Owner owner) {
@@ -172,7 +172,14 @@ break;
 
 
     }
-	public int residenceId;
+	private int residenceId;
+	 public void setresidenceId(int residenceId) {
+	        this.residenceId = residenceId;
+	    }
+
+	    public int getresidenceId() {
+	        return residenceId;
+	    }
 	  public   boolean checkresidenceId;
     private void addresidence() {
     	
