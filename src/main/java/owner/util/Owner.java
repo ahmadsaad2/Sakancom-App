@@ -23,10 +23,7 @@ public class Owner {
 	    // Getter method for ownedResidences
 	   
 	    }
-    public static List<Residences> getOwnedResidences1() {
-        return ownedResidences;
-        
-    }
+  
 
     public Owner() {
     	
