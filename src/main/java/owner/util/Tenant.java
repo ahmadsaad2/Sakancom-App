@@ -17,11 +17,11 @@ public class Tenant {
   private String bankCard;
   private String email;
   private String password;
-
+  Scanner inputscanner = new Scanner(System.in);
   public List<House> housesAfterRemove = new ArrayList<>();
   private List<Furniture> advertisedFurniture;
   private List<House> availableHouses;
-
+  int count;
   {
     availableHouses = new ArrayList<>();
   }
@@ -274,7 +274,6 @@ public class Tenant {
 
   }
   public void advertiseFurniture() {
-    Scanner inputscanner = new Scanner(System.in);
     inputscanner = new Scanner(System.in);
 
     logger.info("Enter furniture details:");
@@ -314,8 +313,7 @@ public class Tenant {
   }
 
   public void removeFurniture() {
-    Scanner inputscanner;
-    inputscanner = new Scanner(System.in);
+
     logger.info("Enter the name of the furniture to remove:");
     String furnitureName  = inputscanner.nextLine();
 
@@ -345,12 +343,11 @@ public class Tenant {
   }
 
   public void bookAccommodation() {
-    Scanner inputscanner = new Scanner(System.in);
 
     logger.info("Booking accommodation...");
 
     logger.info("Available houses:");
-    int count = 1;
+     count = 1;
 
 
     List<House> availableHousesCopy = new ArrayList<>();
