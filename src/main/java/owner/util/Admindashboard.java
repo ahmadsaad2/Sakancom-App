@@ -8,7 +8,7 @@ public class Admindashboard {
 
 
 	private static final Logger logger = Logger.getLogger(Admindashboard.class.getName());
-
+	Scanner scanner = new Scanner(System.in);
 
 	public Admindashboard() {
 		logger.info("Welcome to Admin Dashboard");
@@ -25,7 +25,6 @@ public class Admindashboard {
 			logger.info("3 - Log Out");
 
 
-			Scanner scanner = new Scanner(System.in);
 			int choice = scanner.nextInt();
 
 			switch (choice) {
@@ -51,7 +50,6 @@ public class Admindashboard {
 
 
 	private void acceptandreject() {
-		Scanner scanner = new Scanner(System.in);
 
 		if (Residences.getmHouses() == null) {
 			logger.info("NO pending houses");
