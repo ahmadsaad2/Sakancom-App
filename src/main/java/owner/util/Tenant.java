@@ -29,7 +29,9 @@ public class Tenant {
   public static int houseId = 0;
 
   private List<House> ownedHouses;
-  public static boolean tenancheck1 =false ;
+  //public static boolean tenancheck1 =false ;
+  public static boolean tenancheck1 = false;
+
   static Scanner scanner = new Scanner(System.in);
   List<House> availableHousesCopy = new ArrayList<>();
   public static boolean Remove ;
