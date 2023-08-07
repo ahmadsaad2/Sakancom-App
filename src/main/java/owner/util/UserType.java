@@ -1,8 +1,8 @@
 package owner.util;
 
 public enum UserType {
-AdminStrator,
-Tenant,
-Owner
+	   ADMINISTRATOR,
+	    TENANT,
+	    OWNER
 }  
     
