@@ -11,14 +11,14 @@ import java.util.logging.Logger;
 
 public class Tenant {
   private static final Logger logger = Logger.getLogger(Admindashboard.class.getName());
-   Scanner inputscanner = new Scanner(System.in);
+
   private String name;
   private String phoneNumber;
   private String bankCard;
   private String email;
   private String password;
-  int count;
-  public List<House> HousesAfterRemove  = new ArrayList<>();;
+
+  public List<House> housesAfterRemove = new ArrayList<>();
   private List<Furniture> advertisedFurniture;
   private List<House> availableHouses;
 
@@ -130,11 +130,13 @@ public class Tenant {
   public void setPassword(String password) {
     this.password = password;
   }
+  private static final String DESCRIPTION_PREFIX = "Description: ";
+
   public void viewOwnedHouses() {
     logger.info("Owned Houses:");
     for (House house : ownedHouses) {
       logger.info("House Name: " + house.getName());
-      logger.info("Description: " + house.getDescription());
+      logger.info(DESCRIPTION_PREFIX + house.getDescription());
       logger.info("Price: " + house.getPrice());
       logger.info("Location: " + house.getLocation());
       logger.info("Services: " + house.getServices());
@@ -270,6 +272,7 @@ public class Tenant {
 
   }
   public void advertiseFurniture() {
+    Scanner inputscanner = new Scanner(System.in);
     inputscanner = new Scanner(System.in);
 
     logger.info("Enter furniture details:");
@@ -309,7 +312,8 @@ public class Tenant {
   }
 
   public void removeFurniture() {
- 
+    Scanner inputscanner;
+    inputscanner = new Scanner(System.in);
     logger.info("Enter the name of the furniture to remove:");
     String furnitureName  = inputscanner.nextLine();
 
@@ -339,11 +343,12 @@ public class Tenant {
   }
 
   public void bookAccommodation() {
+    Scanner inputscanner = new Scanner(System.in);
 
     logger.info("Booking accommodation...");
 
     logger.info("Available houses:");
-     count = 1;
+    int count = 1;
 
 
     List<House> availableHousesCopy = new ArrayList<>();
@@ -436,7 +441,7 @@ public class Tenant {
 
       addRentedHouse(chosenHouse.getName());
       availableHouses.remove(chosenHouse);
-      HousesAfterRemove = availableHouses;
+      housesAfterRemove = availableHouses;
       Remove = homeRemove(houseId);
       logger.info("1 - Go back to bookAccommodation");
       logger.info("2 - Go back to Dashboard menu");
@@ -542,7 +547,7 @@ public class Tenant {
   }
   public boolean homeRemove(int id) {
 
-    for (House house : HousesAfterRemove) {
+    for (House house : housesAfterRemove) {
 
       logger.info(() -> String.valueOf(house.getId()));
       logger.info(() -> String.valueOf(id));
