@@ -22,14 +22,13 @@ public class Tenant {
   private List<Furniture> advertisedFurniture;
   private List<House> availableHouses;
   int count;
-  {
-    availableHouses = new ArrayList<>();
-  }
+  
+   
+  
 
   public static int houseId = 0;
 
   private List<House> ownedHouses;
-  //public static boolean tenancheck1 =false ;
   public static boolean tenancheck1 = false;
 
   static Scanner scanner = new Scanner(System.in);
@@ -41,13 +40,13 @@ public class Tenant {
     this.bankCard = bankCard;
     this.email = email;
     this.password = password;
-
+    this.availableHouses = new ArrayList<>();
     this.advertisedFurniture = new ArrayList<>();
     this.ownedHouses = new ArrayList<>();
   }
 
   public Tenant() {
-    // TODO Auto-generated constructor stub
+	  name=null;
   }
 
   public void updatePhoneNumber(String newPhoneNumber) {
