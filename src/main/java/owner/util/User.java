@@ -68,11 +68,7 @@ private static boolean check(String username, String password) {
 	             return true;
 	         }
 			else if(user1.getType().equals(UserType.Tenant)) {
-				  logger.info("Welcome to Sakancom!");
-			      logger.info("1 - Available Housing & Book Accommodation");
-			      logger.info("2 - Show furniture");
-			      logger.info("3 - View Tenant Profile");
-			      logger.info("4 - Log Out");
+				
 		         Tenant.displayDashboard();
 	             return true;
 	         }

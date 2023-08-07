@@ -16,23 +16,24 @@ public class Tenant {
   private String bankCard;
   private String email;
   private String password;
-  public static List<House> availableHouses;
-  public List<House> HousesAfterRemove  = new ArrayList<>();;  
+  public  List<House> availableHouses = new ArrayList<>(); ;
+  public List<House> HousesAfterRemove  = new ArrayList<>();
   private List<Furniture> advertisedFurniture;
   public int houseId;
-
+  Scanner inputscanner = new Scanner(System.in);
   private List<House> ownedHouses;
    public static boolean tenancheck1 =false ;
   static Scanner scanner = new Scanner(System.in);
   List<House> availableHousesCopy = new ArrayList<>();
   public static boolean Remove ;
+  int count = 1;
   public Tenant(String name, String phoneNumber, String bankCard, String email, String password) {
     this.name = name;
     this.phoneNumber = phoneNumber;
     this.bankCard = bankCard;
     this.email = email;
     this.password = password;
-
+    this.availableHouses = new ArrayList<>();
     this.advertisedFurniture = new ArrayList<>();
     this.ownedHouses = new ArrayList<>();
   }
@@ -136,7 +137,11 @@ public void updatePhoneNumber(String newPhoneNumber) {
   }
   public static void displayDashboard() {
     Tenant activeTenant = null; // Initialize activeTenant variable
-    
+    logger.info("Welcome to Sakancom!");
+    logger.info("1 - Available Housing & Book Accommodation");
+    logger.info("2 - Show furniture");
+    logger.info("3 - View Tenant Profile");
+    logger.info("4 - Log Out");
     // Create multiple tenant instances to simulate different tenants logging in
     Tenant tenant1 = new Tenant("laila", "123456789", "1234 5678 3456", "laila@com", "123");
 
@@ -261,7 +266,7 @@ public void updatePhoneNumber(String newPhoneNumber) {
 	 
  }
   public void advertiseFurniture() {
-    Scanner inputscanner = new Scanner(System.in);
+ 
     inputscanner = new Scanner(System.in);
 
     logger.info("Enter furniture details:");
@@ -301,8 +306,7 @@ public void updatePhoneNumber(String newPhoneNumber) {
   }
 
   public void removeFurniture() {
-    Scanner inputscanner;
-    inputscanner = new Scanner(System.in);
+
     logger.info("Enter the name of the furniture to remove:");
     String furnitureName  = inputscanner.nextLine();
 
@@ -332,15 +336,13 @@ public void updatePhoneNumber(String newPhoneNumber) {
   }
 
   public void bookAccommodation() {
-    Scanner inputscanner = new Scanner(System.in);
-
     logger.info("Booking accommodation...");
 
     logger.info("Available houses:");
-    int count = 1;
+  
 
-    for (Residences ss : Owner.getOwnedResidences()) {
-      for(House house : Residences.getHouses())
+   
+      for(House house : availableHouses)
       if (!house.isRented()) {
         logger.info("House is:");
 
@@ -354,7 +356,7 @@ public void updatePhoneNumber(String newPhoneNumber) {
         count++;
         availableHousesCopy.add(house);
       }
-    }
+    
     if (availableHousesCopy.isEmpty()) {
       logger.info("No available houses at the moment. Please check again later.");
       logger.info("1 - Go to showFurniture");

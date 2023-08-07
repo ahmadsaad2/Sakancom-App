@@ -19,13 +19,13 @@ public class adminacceptandreject {
 
     @When("the admin recieves a housing advertisement with id <{int}> and admin chooses to <{string}> it")
     public void the_admin_recieves_a_housing_advertisement_with_id_and_admin_chooses_to_it(Integer int1, String string) {
-        int choice = string.equalsIgnoreCase("Accept") ? 1 : 2;
-        actionResult1 = admindashboard.takeAction(choice, int1);
+    	 int choice = string.equalsIgnoreCase("Accept") ? 1 : 2;
+          actionResult1 = admindashboard.takeAction(choice, int1);
     }
     @When("the admin recieves a housing advertisement with id <{int}> the admin chooses to <{string}> it")
     public void the_admin_recieves_a_housing_advertisement_with_id_the_admin_chooses_to_it(Integer int1, String string) {
-        int choice = string.equalsIgnoreCase("Reject") ? 2 : 1;
-        actionResult2 = admindashboard.takeAction(choice, int1);
+   	 int choice = string.equalsIgnoreCase("Reject") ? 2 : 1;
+     actionResult2 = admindashboard.takeAction(choice, int1);
     }
 
     @Then("the house is accepted")
