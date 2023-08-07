@@ -1,11 +1,6 @@
 package owner.util;
 import java.util.List;
-
-
 import java.util.Scanner;
-
-
-
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
@@ -27,6 +22,7 @@ public class Tenant {
   private static final String LOCATION_LABEL = "location : ";
   private static final String NAME_LABEL = "Name : ";
   private static final String INVALID_LABEL= "Invalid choice!" ;
+  private static final String GOBACK_LABEL= "1 - Go Back TO Dashboard" ;
   //private static final String PRICE_LABEL = "Price: ";
 
    
@@ -216,7 +212,7 @@ public class Tenant {
     logger.info("Welcome to your furniture view...");
     logger.info("1 - Showing advertised furniture");
     logger.info("2 - Advertise furniture");
-    logger.info("3 - Go back to Dashboard menu");
+    logger.info(GOBACK_LABEL);
 
     boolean isLoggedIn2 = true;
 
@@ -300,7 +296,7 @@ public class Tenant {
     addFurniture(furniture);
 
     logger.info("Furniture advertised successfully!");
-    logger.info("1 -Go back to Dashboard menu");
+    logger.info(GOBACK_LABEL);
     logger.info("2 - Add more advertised furniture");
     logger.info("3 - Remove advertised furniture");
     int choice = inputscanner.nextInt();
@@ -333,7 +329,7 @@ public class Tenant {
       logger.info("Furniture not found!");
     }
 
-    logger.info("1 - Go back to Dashboard menu");
+    logger.info(GOBACK_LABEL);
     logger.info("2 - Add more advertised furniture");
 
     int choice = inputscanner.nextInt();
@@ -443,7 +439,7 @@ public class Tenant {
       logger.info(() -> "Rent Amount: " + rentAmount);
       logger.info(() -> "Payment Method: " + paymentMethod);
       logger.info("---------------------------------------------");
-      logger.info("---------------------------------------------");
+
 
       addRentedHouse(chosenHouse.getName());
       availableHouses.remove(chosenHouse);
@@ -487,7 +483,7 @@ public class Tenant {
 
 
 
-    logger.info("1 - Go back to Dashboard menu");
+    logger.info(GOBACK_LABEL);
     logger.info("2 - Edit Profile Information");
     int choice = scanner.nextInt();
 
