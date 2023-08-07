@@ -76,15 +76,13 @@ public class Owner {
         ownedResidences.add(newResidence);
     }
     
-    public boolean check(int input) {
-        OwnerDashboard own = new OwnerDashboard();
-        // Remove the unused "residences" local variable and call the method directly
-        if (own.fun().getId() != input)
-            return true;
-        else
-            return false;
+    public boolean  ckeck(int input) {
+    	OwnerDashboard own=new OwnerDashboard();
+    	Residences newResidence= own.fun();
+		if( newResidence.getId()!=input )return true;
+		else
+		return false;
     }
-
 
           }
         
