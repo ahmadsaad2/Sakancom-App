@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import java.util.logging.Logger;
 
 public class Tenant {
-  private static final Logger logger = Logger.getLogger(Admindashboard.class.getName());
+	private static final Logger logger = Logger.getLogger(Tenant.class.getName());
+
 
   private String name;
   private String phoneNumber;
@@ -257,19 +258,16 @@ public class Tenant {
  
       int choice = inputscanner.nextInt();
 
-      switch (choice) {
-        case 1:
-          showFurniture();
-          break;
-        default:
-          logger.info(INVALID_LABEL);
-          break;
-      }
+      if (choice == 1) {
+    	    showFurniture();
+    	} else {
+    	    logger.info(INVALID_LABEL);
+    	}
+
     }
   
   public int checkbill(int numberOfMounth , int cost ) {
-    int rentAmount = cost * numberOfMounth;
-    return rentAmount;
+    return cost * numberOfMounth;
 
   }
   public void advertiseFurniture() {
@@ -352,14 +350,12 @@ public class Tenant {
 
       int choice = inputscanner.nextInt();
 
-      switch (choice) {
-        case 1:
-          showFurniture();
-          break;
-        default:
-          logger.info(INVALID_LABEL);
-          break;
-      }
+      if (choice == 1) {
+    	    showFurniture();
+    	} else {
+    	    logger.info(INVALID_LABEL);
+    	}
+
     } else {
       logger.info("Owned residences are available.");
 
@@ -386,14 +382,12 @@ public class Tenant {
 
         int choice = inputscanner.nextInt();
 
-        switch (choice) {
-          case 1:
+        if (choice == 1) {
             showFurniture();
-            break;
-          default:
+        } else {
             logger.info(INVALID_LABEL);
-            break;
         }
+
       }
 
       logger.info("Enter the ID of the house you want to book: ");
