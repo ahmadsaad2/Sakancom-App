@@ -23,17 +23,17 @@ public class User {
 	}
 	private static ArrayList<User> usersystem= new ArrayList<>();
 
-	public static boolean testuser;
+	public boolean testuser;
 	boolean flaga=true;
 	boolean flago=false;
-	boolean flagt=false;
+	boolean flagt=false;  
 	public  boolean  login(String username1, String password1) {
-		usersystem.add(new User("ahmad","789",UserType.AdminStrator));
-		usersystem.add(new User("laila","123",UserType.Tenant));
-		usersystem.add(new User("ali","123",UserType.Tenant));
-		usersystem.add(new User("noor","123",UserType.Tenant));
-		usersystem.add(new User("suha","123",UserType.Tenant));
-		usersystem.add(new User("shahad","123456",UserType.Owner));
+		usersystem.add(new User("ahmad","789",UserType.ADMINISTRATOR));
+		usersystem.add(new User("laila","123",UserType.TENANT));
+		usersystem.add(new User("ali","123",UserType.TENANT));
+		usersystem.add(new User("noor","123",UserType.TENANT));
+		usersystem.add(new User("suha","123",UserType.TENANT));
+		usersystem.add(new User("shahad","123456",UserType.OWNER));
 
 		testuser= check(username1, password1);
 		if(testuser){
@@ -46,13 +46,13 @@ public class User {
 		logger.info(username);
 		for(User user1: usersystem) {
 			if (user1.getUsername().equals(username) && user1.getPassword().equals(password)) {
-				if(user1.getType().equals(UserType.AdminStrator)) {
+				if(user1.getType().equals(UserType.ADMINISTRATOR)) {
 					Admindashboard adminDashboard = new Admindashboard();
 					adminDashboard.displayDashboard();
 
 					return true;
 				}
-				else if(user1.getType().equals(UserType.Owner)) {
+				else if(user1.getType().equals(UserType.OWNER)) {
 					Owner owner = new Owner(username, 1 , username, password);
 
 					Residences residence1 = new Residences(1, username, " nabblus", 2, 4, "Services ");
@@ -67,7 +67,7 @@ public class User {
 
 					return true;
 				}
-				else if(user1.getType().equals(UserType.Tenant)) {
+				else if(user1.getType().equals(UserType.TENANT)) {
 			
 					Tenant.displayDashboard();
 					return true;
