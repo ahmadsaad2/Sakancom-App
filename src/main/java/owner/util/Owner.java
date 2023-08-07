@@ -16,12 +16,7 @@ public class Owner {
         this.id = id;
         this.username = username;
         this.password = password;
-     
-      
-        // Constructor and other methods for the Owner class
 
-	    // Getter method for ownedResidences
-	   
 	    }
   
 
@@ -77,7 +72,7 @@ public class Owner {
     	OwnerDashboard own=new OwnerDashboard();
     	 newResidence= own.fun();
 		if( Residences.getId()!=input )return true;
-		else
+		
 		return false;
     }
 
