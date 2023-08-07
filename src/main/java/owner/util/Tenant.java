@@ -339,7 +339,7 @@ public void updatePhoneNumber(String newPhoneNumber) {
     logger.info("Available houses:");
     int count = 1;
 
-    for (Residences ss : Owner.ownedResidences) {
+    for (Residences ss : Owner.getOwnedResidences()) {
       for(House house : Residences.getHouses())
       if (!house.isRented()) {
         logger.info("House is:");
@@ -436,10 +436,10 @@ public void updatePhoneNumber(String newPhoneNumber) {
   public static String newBankCard;
   public static String newEmail;
   public static String newPassword;
-  public boolean FlageUpdatePassword = false;
-  public boolean FlageUpdatePhone = false;
-  public boolean FlageUpdateBank = false;
-  public boolean FlageUpdateEmail = false;
+  static  boolean flageUpdatePassword = false;
+  static boolean flageUpdatePhone = false;
+  static  boolean flageUpdateBank = false;
+  static  boolean flageUpdateEmail = false;
 
   public void viewProfile() {
     logger.info("Viewing tenant profile...");
@@ -485,28 +485,28 @@ public static  int profileChoice;
         newPhoneNumber = scanner.nextLine();
         updatePhoneNumber(newPhoneNumber);
         logger.info("Phone number updated successfully!");
-        FlageUpdatePhone = true;
+        flageUpdatePhone = true;
         break;
       case 2:
         logger.info("Enter new bank card: ");
         newBankCard = scanner.nextLine();
         updateBankCard(newBankCard);
         logger.info("Bank card updated successfully!");
-        FlageUpdateBank = true;
+        flageUpdateBank = true;
         break;
       case 3:
         logger.info("Enter new email: ");
         newEmail = scanner.nextLine();
         updateEmail(newEmail);
         logger.info("Email updated successfully!");
-        FlageUpdateEmail = true;
+        flageUpdateEmail = true;
         break;
       case 4:
         logger.info("Enter new password: ");
         newPassword = scanner.nextLine();
         updatePassword(newPassword);
         logger.info("Password updated successfully!");
-        FlageUpdatePassword = true;
+         flageUpdatePassword = true;
         break;
       default:
         logger.info("Invalid choice!");
