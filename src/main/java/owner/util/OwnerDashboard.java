@@ -7,8 +7,7 @@ import java.util.logging.Logger;
 import static owner.util.Residences.*;
 
 public class OwnerDashboard {
-    private static final Logger logger = Logger.getLogger(Admindashboard.class.getName());
-
+	private static final Logger logger = Logger.getLogger(OwnerDashboard.class.getName());
 
     private Owner owner;
     private List<Residences> ownedResidences;
@@ -208,7 +207,7 @@ public class OwnerDashboard {
 
         for (Residences residence : ownedResidences) {
 
-            if (getId() == residenceId2) {
+            if (residence.getId() == residenceId2) {
 
                 return true;
             }
