@@ -8,6 +8,7 @@ public class Admindashboard {
 
 
 	private static final Logger logger = Logger.getLogger(Admindashboard.class.getName());
+
 	Scanner scanner = new Scanner(System.in);
 
 	public Admindashboard() {
@@ -23,7 +24,6 @@ public class Admindashboard {
 			logger.info("1 - Show pending Houses");
 			logger.info("2 - Accept and Reject houses");
 			logger.info("3 - Log Out");
-
 
 			int choice = scanner.nextInt();
 
@@ -69,6 +69,8 @@ public class Admindashboard {
 		}
 	}}
 
+	
+///update///
 	public int takeAction(int nextInt, int id1) {
 
         House hos=new House(1,1, "house 5", "description5", 2000, "nablus", "Services 1");
@@ -99,6 +101,7 @@ public class Admindashboard {
 	        return 2;
 	    }
 	}
+	
 
 	public void viewRequests() {
 		List<House> mhouses = Residences.getmHouses();

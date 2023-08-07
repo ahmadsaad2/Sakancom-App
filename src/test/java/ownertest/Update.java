@@ -1,9 +1,6 @@
 package ownertest;
- 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
-import io.cucumber.java.en.Given;
+import static org.junit.Assert.assertTrue;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import owner.util.Tenant;

@@ -1,6 +1,7 @@
 package owner.util;
 import java.util.List;
 
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 
@@ -16,33 +17,38 @@ public class Tenant {
   private String bankCard;
   private String email;
   private String password;
-  public  List<House> availableHouses = new ArrayList<>(); ;
-  public List<House> HousesAfterRemove  = new ArrayList<>();
+
+  public List<House> HousesAfterRemove  = new ArrayList<>();;
   private List<Furniture> advertisedFurniture;
+  private List<House> availableHouses;
+
+  {
+    availableHouses = new ArrayList<>();
+  }
+
   public int houseId;
-  Scanner inputscanner = new Scanner(System.in);
+
   private List<House> ownedHouses;
-   public static boolean tenancheck1 =false ;
+  public static boolean tenancheck1 =false ;
   static Scanner scanner = new Scanner(System.in);
   List<House> availableHousesCopy = new ArrayList<>();
   public static boolean Remove ;
-  int count = 1;
   public Tenant(String name, String phoneNumber, String bankCard, String email, String password) {
     this.name = name;
     this.phoneNumber = phoneNumber;
     this.bankCard = bankCard;
     this.email = email;
     this.password = password;
-    this.availableHouses = new ArrayList<>();
+
     this.advertisedFurniture = new ArrayList<>();
     this.ownedHouses = new ArrayList<>();
   }
 
   public Tenant() {
-	// TODO Auto-generated constructor stub
-}
+    // TODO Auto-generated constructor stub
+  }
 
-public void updatePhoneNumber(String newPhoneNumber) {
+  public void updatePhoneNumber(String newPhoneNumber) {
     this.phoneNumber = newPhoneNumber;
   }
 
@@ -59,9 +65,9 @@ public void updatePhoneNumber(String newPhoneNumber) {
   }
 
   public void addHouse(House house, boolean rented) {
-      house.setRented(rented);
-      availableHouses.add(house);
-      ownedHouses.add(house);
+    house.setRented(rented);
+    availableHouses.add(house);
+    ownedHouses.add(house);
   }
   public void addAdvertisedFurniture(Furniture furniture) {
     advertisedFurniture.add(furniture);
@@ -103,7 +109,7 @@ public void updatePhoneNumber(String newPhoneNumber) {
 
   public String getBankCard() {
     return bankCard;
-  } 
+  }
 
   public void setBankCard(String bankCard) {
     this.bankCard = bankCard;
@@ -125,23 +131,19 @@ public void updatePhoneNumber(String newPhoneNumber) {
     this.password = password;
   }
   public void viewOwnedHouses() {
-      logger.info("Owned Houses:");
-      for (House house : ownedHouses) {
-          logger.info("House Name: " + house.getName());
-          logger.info("Description: " + house.getDescription());
-          logger.info("Price: " + house.getPrice());
-          logger.info("Location: " + house.getLocation());
-          logger.info("Services: " + house.getServices());
-          logger.info("-------------------------");
-      }
+    logger.info("Owned Houses:");
+    for (House house : ownedHouses) {
+      logger.info("House Name: " + house.getName());
+      logger.info("Description: " + house.getDescription());
+      logger.info("Price: " + house.getPrice());
+      logger.info("Location: " + house.getLocation());
+      logger.info("Services: " + house.getServices());
+      logger.info("-------------------------");
+    }
   }
   public static void displayDashboard() {
     Tenant activeTenant = null; // Initialize activeTenant variable
-    logger.info("Welcome to Sakancom!");
-    logger.info("1 - Available Housing & Book Accommodation");
-    logger.info("2 - Show furniture");
-    logger.info("3 - View Tenant Profile");
-    logger.info("4 - Log Out");
+
     // Create multiple tenant instances to simulate different tenants logging in
     Tenant tenant1 = new Tenant("laila", "123456789", "1234 5678 3456", "laila@com", "123");
 
@@ -151,37 +153,38 @@ public void updatePhoneNumber(String newPhoneNumber) {
     boolean isLoggedIn = true;
     tenancheck1=true;
     while (isLoggedIn) {
-    
+
 
       int choice = scanner.nextInt();
 
       switch (choice) {
         case 1 -> {
           activeTenant = tenant1; // Set the active tenant to tenant1 or tenant2
-    activeTenant.bookAccommodation();
-          
+          activeTenant.bookAccommodation();
+
         }
         case 2 -> {
           activeTenant = tenant1; // Set the active tenant to tenant1 or tenant2
-     
-            activeTenant.showFurniture();
-          
+
+          activeTenant.showFurniture();
+
         }
         case 3 -> {
           activeTenant = tenant1; // Set the active tenant to tenant1 or tenant2
-            activeTenant.viewProfile();
-        
+          activeTenant.viewProfile();
+
         }
         case 4 -> {
           logger.info("Logged out successfully");
           isLoggedIn = false;
+          break;
         }
         case 5 ->{
-        	if (activeTenant != null) {
-        	    activeTenant.viewOwnedHouses(); // View owned houses added by the tenant
-        	} else {
-        		logger.info("Error: activeTenant is null.");
-        	}
+          if (activeTenant != null) {
+            activeTenant.viewOwnedHouses(); // View owned houses added by the tenant
+          } else {
+            logger.info("Error: activeTenant is null.");
+          }
         }
         default -> logger.info("Invalid choice!");
       }
@@ -190,42 +193,43 @@ public void updatePhoneNumber(String newPhoneNumber) {
   }
 
 
+
+
+
+
+
+
   public void showFurniture() {
     logger.info("Welcome to your furniture view...");
     logger.info("1 - Showing advertised furniture");
     logger.info("2 - Advertise furniture");
     logger.info("3 - Go back to Dashboard menu");
-    logger.info("4 - Log out from the system");
+
     boolean isLoggedIn2 = true;
 
     while (isLoggedIn2) {
-      try (Scanner inputscanner = new Scanner(System.in)) {
-        int choice;
-        choice = inputscanner.nextInt();
+      int choice = scanner.nextInt(); // Use the existing scanner for input
 
-        switch (choice) {
-          case 1:
-            showFurniture1();
-            break;
-          case 2:
-            advertiseFurniture();
-            break;
-          case 3:
-            // Go back to the main menu
-            displayDashboard();
-            break;
-          case 4:
-            // Log out
-            logger.info("Logged out successfully");
-            isLoggedIn2=false;
-            break;
-          default:
-            logger.info("Invalid choice!");
-            break;
-        }
+      switch (choice) {
+        case 1:
+          showFurniture1();
+          break;
+        case 2:
+          advertiseFurniture();
+          break;
+        case 3:
+          isLoggedIn2 = false;
+          break;
+        default:
+          logger.info("Invalid choice!");
+          break;
       }
-    }
-  }
+    }}
+
+
+
+
+
 
   public void addRentedHouse(String houseName) {
     for (House house : availableHouses) {
@@ -260,13 +264,13 @@ public void updatePhoneNumber(String newPhoneNumber) {
       }
     }
   }
- public int checkbill(int numberOfMounth , int cost ) {
-	 int rentAmount = cost * numberOfMounth;
-	return rentAmount;
-	 
- }
+  public int checkbill(int numberOfMounth , int cost ) {
+    int rentAmount = cost * numberOfMounth;
+    return rentAmount;
+
+  }
   public void advertiseFurniture() {
- 
+    Scanner inputscanner = new Scanner(System.in);
     inputscanner = new Scanner(System.in);
 
     logger.info("Enter furniture details:");
@@ -306,7 +310,8 @@ public void updatePhoneNumber(String newPhoneNumber) {
   }
 
   public void removeFurniture() {
-
+    Scanner inputscanner;
+    inputscanner = new Scanner(System.in);
     logger.info("Enter the name of the furniture to remove:");
     String furnitureName  = inputscanner.nextLine();
 
@@ -336,29 +341,17 @@ public void updatePhoneNumber(String newPhoneNumber) {
   }
 
   public void bookAccommodation() {
+    Scanner inputscanner = new Scanner(System.in);
+
     logger.info("Booking accommodation...");
 
     logger.info("Available houses:");
-  
+    int count = 1;
 
-   
-      for(House house : availableHouses)
-      if (!house.isRented()) {
-        logger.info("House is:");
 
-        logger.info("ID: " + house.getId());
-        logger.info("Name: " + house.getName());
-        logger.info("Description: " + house.getDescription());
-        logger.info("Price: " + house.getPrice());
-        logger.info("Location: " + house.getLocation());
-        logger.info("Services: " + house.getServices());
-        logger.info("-------------------------");
-        count++;
-        availableHousesCopy.add(house);
-      }
-    
-    if (availableHousesCopy.isEmpty()) {
-      logger.info("No available houses at the moment. Please check again later.");
+    List<House> availableHousesCopy = new ArrayList<>();
+    if (Owner.isOwnedResidencesEmpty()) {
+      logger.info("No owned residences.");
       logger.info("1 - Go to showFurniture");
 
       int choice = inputscanner.nextInt();
@@ -371,77 +364,110 @@ public void updatePhoneNumber(String newPhoneNumber) {
           logger.info("Invalid input");
           break;
       }
-    }
-
-    logger.info("Enter the ID of the house you want to book: ");
-    houseId = inputscanner.nextInt();
-
-    House chosenHouse = homeRented(houseId);
-
-    
-    
-    if (chosenHouse == null) {
-      logger.info("Invalid house selection.");
-      bookAccommodation();
-      return;
-    }
-
-    inputscanner.nextLine(); // Consume newline character
-    logger.info("Enter your full name: ");
-    String tenantName = inputscanner.nextLine();
-
-    logger.info("Enter the number of months to rent: ");
-    int numMonths = inputscanner.nextInt();
-    double rentAmount =checkbill( chosenHouse.getPrice(), numMonths);
+    } else {
+      logger.info("Owned residences are available.");
 
 
-    inputscanner.nextLine(); // Consume newline character
-    logger.info("Enter the payment method and details: ");
-    String paymentMethod = inputscanner.nextLine();
+      for (Residences ss : Owner.ownedResidences) {
+        for (House house : Residences.getHouses())
+          if (!house.isRented()) {
+            logger.info("House is:");
 
-    chosenHouse.setRented(true);
+            logger.info("ID: " + house.getId());
+            logger.info("Name: " + house.getName());
+            logger.info("Description: " + house.getDescription());
+            logger.info("Price: " + house.getPrice());
+            logger.info("Location: " + house.getLocation());
+            logger.info("Services: " + house.getServices());
+            logger.info("-------------------------");
+            count++;
+            availableHousesCopy.add(house);
+          }
+      }
+      if (availableHousesCopy.isEmpty()) {
+        logger.info("No available houses at the moment. Please check again later.");
+        logger.info("1 - Go to showFurniture");
+
+        int choice = inputscanner.nextInt();
+
+        switch (choice) {
+          case 1:
+            showFurniture();
+            break;
+          default:
+            logger.info("Invalid input");
+            break;
+        }
+      }
+
+      logger.info("Enter the ID of the house you want to book: ");
+      houseId = inputscanner.nextInt();
+
+      House chosenHouse = homeRented(houseId);
 
 
-    logger.info("Booking successful! You have booked the house:");
-    logger.info(() -> "House Name: " + chosenHouse.getName());
-    logger.info(() -> "Tenant Name: " + tenantName);
-    logger.info(() -> "Number of Months: " + numMonths);
-    logger.info(() -> "Rent Amount: " + rentAmount);
-    logger.info(() -> "Payment Method: " + paymentMethod);
-    logger.info("---------------------------------------------");
-    logger.info("---------------------------------------------");
-
-    addRentedHouse(chosenHouse.getName());
-    availableHouses.remove(chosenHouse);
-    HousesAfterRemove=availableHouses;
-     Remove = homeRemove(houseId);
-    logger.info("1 - Go back to bookAccommodation");
-    logger.info("2 - Go back to Dashboard menu");
-
-    int choice = inputscanner.nextInt();
-
-    switch (choice) {
-      case 1:
+      if (chosenHouse == null) {
+        logger.info("Invalid house selection.");
         bookAccommodation();
-        logger.info("test");
-        break;
-      case 2:
-        displayDashboard();
-        break;
-      default:
-        logger.info("Invalid input");
-        break;
+        return;
+      }
+
+      inputscanner.nextLine(); // Consume newline character
+      logger.info("Enter your full name: ");
+      String tenantName = inputscanner.nextLine();
+
+      logger.info("Enter the number of months to rent: ");
+      int numMonths = inputscanner.nextInt();
+      double rentAmount = checkbill(chosenHouse.getPrice(), numMonths);
+
+
+      inputscanner.nextLine(); // Consume newline character
+      logger.info("Enter the payment method and details: ");
+      String paymentMethod = inputscanner.nextLine();
+
+      chosenHouse.setRented(true);
+
+
+      logger.info("Booking successful! You have booked the house:");
+      logger.info(() -> "House Name: " + chosenHouse.getName());
+      logger.info(() -> "Tenant Name: " + tenantName);
+      logger.info(() -> "Number of Months: " + numMonths);
+      logger.info(() -> "Rent Amount: " + rentAmount);
+      logger.info(() -> "Payment Method: " + paymentMethod);
+      logger.info("---------------------------------------------");
+      logger.info("---------------------------------------------");
+
+      addRentedHouse(chosenHouse.getName());
+      availableHouses.remove(chosenHouse);
+      HousesAfterRemove = availableHouses;
+      Remove = homeRemove(houseId);
+      logger.info("1 - Go back to bookAccommodation");
+      logger.info("2 - Go back to Dashboard menu");
+
+      int choice = inputscanner.nextInt();
+
+      switch (choice) {
+        case 1:
+          bookAccommodation();
+          logger.info("test");
+          break;
+        case 2:
+          displayDashboard();
+          break;
+        default:
+          logger.info("Invalid input");
+          break;
+      }
     }
   }
-
   public static String newPhoneNumber;
   public static String newBankCard;
   public static String newEmail;
   public static String newPassword;
-  static  boolean flageUpdatePassword = false;
-  static boolean flageUpdatePhone = false;
-  static  boolean flageUpdateBank = false;
-  static  boolean flageUpdateEmail = false;
+  public boolean FlageUpdatePassword = false;
+  public boolean FlageUpdatePhone = false;
+  public boolean FlageUpdateBank = false;
+  public boolean FlageUpdateEmail = false;
 
   public void viewProfile() {
     logger.info("Viewing tenant profile...");
@@ -469,7 +495,7 @@ public void updatePhoneNumber(String newPhoneNumber) {
         break;
     }
   }
-public static  int profileChoice;
+  public static  int profileChoice;
 
   public int updateProfileInformation() {
     logger.info("---------------------");
@@ -487,28 +513,28 @@ public static  int profileChoice;
         newPhoneNumber = scanner.nextLine();
         updatePhoneNumber(newPhoneNumber);
         logger.info("Phone number updated successfully!");
-        flageUpdatePhone = true;
+        FlageUpdatePhone = true;
         break;
       case 2:
         logger.info("Enter new bank card: ");
         newBankCard = scanner.nextLine();
         updateBankCard(newBankCard);
         logger.info("Bank card updated successfully!");
-        flageUpdateBank = true;
+        FlageUpdateBank = true;
         break;
       case 3:
         logger.info("Enter new email: ");
         newEmail = scanner.nextLine();
         updateEmail(newEmail);
         logger.info("Email updated successfully!");
-        flageUpdateEmail = true;
+        FlageUpdateEmail = true;
         break;
       case 4:
         logger.info("Enter new password: ");
         newPassword = scanner.nextLine();
         updatePassword(newPassword);
         logger.info("Password updated successfully!");
-         flageUpdatePassword = true;
+        FlageUpdatePassword = true;
         break;
       default:
         logger.info("Invalid choice!");
@@ -517,36 +543,36 @@ public static  int profileChoice;
     viewProfile();
     return profileChoice;
   }
-public boolean homeRemove(int id) {
-	
-for (House house : HousesAfterRemove) {
+  public boolean homeRemove(int id) {
 
-  logger.info(() -> String.valueOf(house.getId()));
-  logger.info(() -> String.valueOf(id));
-  logger.info(() -> "");
-    if (house.getId() == id){
-      logger.info("Method invoked because the condition is met.");
+    for (House house : HousesAfterRemove) {
 
-     return false;}
-}
-  	   return true;
-  
-}
+      logger.info(() -> String.valueOf(house.getId()));
+      logger.info(() -> String.valueOf(id));
+      logger.info(() -> "");
+      if (house.getId() == id){
+        logger.info("Method invoked because the condition is met.");
+
+        return false;}
+    }
+    return true;
+
+  }
 
   public House homeRented(int id) {
-	  for (House house : availableHousesCopy) {
-	      if (house.getId() == id) {
-	        return house ;
-	      }
-	     }
-	return null;
+    for (House house : availableHousesCopy) {
+      if (house.getId() == id) {
+        return house ;
+      }
+    }
+    return null;
   }
-	public List<House> getOwnedHouses() {
-		return ownedHouses;
-	}
+  public List<House> getOwnedHouses() {
+    return ownedHouses;
+  }
 
-	public void setOwnedHouses(List<House> ownedHouses) {
-		this.ownedHouses = ownedHouses;
-	}
+  public void setOwnedHouses(List<House> ownedHouses) {
+    this.ownedHouses = ownedHouses;
+  }
   // Other methods and class definitions...
 }

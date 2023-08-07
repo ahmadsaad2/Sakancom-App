@@ -1,12 +1,11 @@
 package owner.util;
- 
-import java.util.List;
+
 
 public class Furniture {
     private String name;
     private String description;
     private double price;
-    private List<Furniture> advertisedFurniture;
+
         
     public Furniture(String name, String description, double price) {
         this.name = name;

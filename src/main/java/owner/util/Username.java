@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class Username  {
-	 static Scanner first = new Scanner(System.in);
+    static Scanner first = new Scanner(System.in);
     private static final Logger logger = Logger.getLogger(Username .class.getName());
 
     public static void main(String[] args) {
