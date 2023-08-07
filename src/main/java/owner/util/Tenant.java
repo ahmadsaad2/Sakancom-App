@@ -1,7 +1,7 @@
 package owner.util;
 import java.util.List;
 
-import java.util.NoSuchElementException;
+
 import java.util.Scanner;
 
 
@@ -11,13 +11,13 @@ import java.util.logging.Logger;
 
 public class Tenant {
   private static final Logger logger = Logger.getLogger(Admindashboard.class.getName());
-
+   Scanner inputscanner = new Scanner(System.in);
   private String name;
   private String phoneNumber;
   private String bankCard;
   private String email;
   private String password;
-
+  int count;
   public List<House> HousesAfterRemove  = new ArrayList<>();;
   private List<Furniture> advertisedFurniture;
   private List<House> availableHouses;
@@ -270,7 +270,6 @@ public class Tenant {
 
   }
   public void advertiseFurniture() {
-    Scanner inputscanner = new Scanner(System.in);
     inputscanner = new Scanner(System.in);
 
     logger.info("Enter furniture details:");
@@ -310,8 +309,7 @@ public class Tenant {
   }
 
   public void removeFurniture() {
-    Scanner inputscanner;
-    inputscanner = new Scanner(System.in);
+ 
     logger.info("Enter the name of the furniture to remove:");
     String furnitureName  = inputscanner.nextLine();
 
@@ -341,12 +339,11 @@ public class Tenant {
   }
 
   public void bookAccommodation() {
-    Scanner inputscanner = new Scanner(System.in);
 
     logger.info("Booking accommodation...");
 
     logger.info("Available houses:");
-    int count = 1;
+     count = 1;
 
 
     List<House> availableHousesCopy = new ArrayList<>();
