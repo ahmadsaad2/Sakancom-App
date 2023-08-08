@@ -13,7 +13,7 @@ public class Tenant {
   private String bankCard;
   private String email;
   private String password;
-   Scanner inputscanner = new Scanner(System.in);
+  static Scanner inputscanner = new Scanner(System.in);
   public List<House> housesAfterRemove = new ArrayList<>();
   private List<Furniture> advertisedFurniture;
   private List<House> availableHouses;
