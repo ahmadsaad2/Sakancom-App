@@ -15,7 +15,7 @@ public class User {
 	public static boolean a=false;
 	public static boolean o=false;
 	public static boolean flage=true;
-	Scanner first;
+	static Scanner first;
 	public User(String username, String password, UserType type) {
 		this.username=username;
 		this.password=password;
@@ -34,7 +34,7 @@ public class User {
 		usersystem.add(new User("noor","123",UserType.TENANT));
 		usersystem.add(new User("suha","123",UserType.TENANT));
 		usersystem.add(new User("shahad","123456",UserType.OWNER));
-
+        
 		testuser= check(username1, password1);
 		return testuser;
 	}
@@ -44,29 +44,16 @@ public class User {
 		for(User user1: usersystem) {
 			if (user1.getUsername().equals(username) && user1.getPassword().equals(password)) {
 				if(user1.getType().equals(UserType.ADMINISTRATOR)) {
-					Admindashboard adminDashboard = new Admindashboard();
-					adminDashboard.displayDashboard();
-
+	a=true;
 					return true;
 				}
 				else if(user1.getType().equals(UserType.OWNER)) {
-					Owner owner = new Owner(username, 1 , username, password);
-
-					Residences residence1 = new Residences(1, username, " nabblus", 2, 4, "Services ");
-					House house1 = new House(1, 1, "House 1", "Description 1", 2000, "street-98", "have balcony");
-					House house2 = new House(2, 1, "House 2", "Description 2", 1500, "street-17", "sensative flam");
-
-					residence1.addHouse(house1);
-					residence1.addHouse(house2);
-					owner.addResidence(residence1);
-					OwnerDashboard ownerDashboard = new OwnerDashboard(owner);
-					ownerDashboard.displayDashboard();
+					o=true;
 
 					return true;
 				}
 				else if(user1.getType().equals(UserType.TENANT)) {
-			
-					Tenant.displayDashboard();
+			t=true;
 					return true;
 				}
 			}
